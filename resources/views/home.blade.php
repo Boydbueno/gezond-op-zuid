@@ -1,17 +1,24 @@
 @extends('app')
 
 @section('content')
-<div class="container">
-	<div class="row">
-		<div class="col-md-10 col-md-offset-1">
-			<div class="panel panel-default">
-				<div class="panel-heading">Home</div>
+    <div class="container">
+        <div class="row">
 
-				<div class="panel-body">
-					You are logged in!
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+        </div>
+    </div>
+@endsection
+
+@section('scripts')
+    <script>
+        var conn = new WebSocket('ws://gezond-op-zuid.app:8080');
+        conn.onopen = function(e) {
+            console.log("Connection established!");
+
+            conn.send(JSON.stringify({'message': 'Tosti!'}));
+        };
+
+        conn.onmessage = function(e) {
+            console.log(e.data);
+        };
+    </script>
 @endsection
