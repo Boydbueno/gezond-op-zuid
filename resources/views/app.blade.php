@@ -10,20 +10,16 @@
 
 </head>
 <body>
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">Gezond op Zuid</a>
-        </div>
-    </div>
-</nav>
 
 @yield('content')
 
 <!-- Scripts -->
 <script src="{{ asset('/bower/jquery/dist/jquery.min.js') }}"></script>
 <script src="{{ asset('/bower/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-<!-- Todo: Download autobahn -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.1/react.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.1/JSXTransformer.js"></script>
+<script src="{{ asset('/bower/react-router/build/umd/ReactRouter.min.js') }}"></script>
+
 @yield('scripts', '')
 
 </body>

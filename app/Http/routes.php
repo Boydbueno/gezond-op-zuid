@@ -1,3 +1,5 @@
 <?php
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'ClientController@index');
+
+Route::get('/dashboard', 'DashboardController@index');
