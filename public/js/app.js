@@ -1,6 +1,7 @@
 import App from './components/App';
-import Login from './components/Login';
+
 import Client from './components/Client';
+import Login from './components/client/Login';
 import Board from './components/Board';
 
 var Router = ReactRouter;
