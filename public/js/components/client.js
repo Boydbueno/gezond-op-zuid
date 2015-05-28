@@ -55,6 +55,15 @@ var Client = React.createClass({
 
             this.transitionTo('/');
         };
+
+        this.conn.onmessage = (e) => {
+            var message = JSON.parse(e.data);
+            switch(message.event) {
+                case 'category:started':
+                    this.transitionTo("clientFood");
+                    break;
+            }
+        };
     },
 
     setName: function(name) {
