@@ -7,6 +7,7 @@ var Board = React.createClass({
     mixins: [Navigation],
     getInitialState: function() {
         return {
+            category: null,
             players: []
         }
     },
@@ -42,6 +43,9 @@ var Board = React.createClass({
                 case 'player:left':
                     this.removePlayer(message.connectionId);
                     break;
+                case 'category:request':
+                    this.sendCurrentCategory(message.connectionId);
+                    break;
             }
         };
     },
@@ -57,12 +61,18 @@ var Board = React.createClass({
     },
 
     startCategory: function(category) {
+        this.setState({category: category});
         this.transitionTo('boardFood');
 
+        this.sendCurrentCategory();
+    },
+
+    sendCurrentCategory: function(connectionId = null) {
         var message = {
             event: "category:started",
+            target: connectionId,
             data: {
-                category: 'food'
+                category: this.state.category
             }
         };
 
