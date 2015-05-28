@@ -2,6 +2,7 @@ var Router = ReactRouter;
 var RouteHandler = Router.RouteHandler;
 
 var Board = React.createClass({
+    conn: {},
     getInitialState: function() {
         return {
             players: []
@@ -22,22 +23,19 @@ var Board = React.createClass({
     },
 
     connect: function() {
-        var conn = new WebSocket('ws://gezond-op-zuid.app:8080');
-        conn.onopen = function(e) {
+        this.conn = new WebSocket('ws://gezond-op-zuid.app:8080');
+        this.conn.onopen = function(e) {
             console.log("Connection established!");
         };
-        conn.onmessage = (e) => {
+        this.conn.onmessage = (e) => {
             var message = JSON.parse(e.data);
             console.log(message);
             switch(message.event) {
                 case 'player:joined':
-
                     this.addPlayer({
                         id: message.connectionId,
                         name: message.data.name
                     });
-
-                    console.log(this.state.players);
                     break;
                 case 'player:left':
                     this.removePlayer(message.connectionId);
