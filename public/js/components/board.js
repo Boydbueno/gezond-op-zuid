@@ -1,8 +1,10 @@
 var Router = ReactRouter;
 var RouteHandler = Router.RouteHandler;
+var Navigation = Router.Navigation;
 
 var Board = React.createClass({
     conn: {},
+    mixins: [Navigation],
     getInitialState: function() {
         return {
             players: []
@@ -17,7 +19,7 @@ var Board = React.createClass({
         return (
             <div>
                 <h1>Board</h1>
-                <RouteHandler/>
+                <RouteHandler onStartCategory={this.startCategory}/>
             </div>
         );
     },
@@ -52,6 +54,10 @@ var Board = React.createClass({
         this.state.players = this.state.players.filter(function(player) {
            return player.id !== id;
         });
+    },
+
+    startCategory: function(category) {
+        this.transitionTo('boardFood');
     }
 });
 
