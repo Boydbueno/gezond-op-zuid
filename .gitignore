@@ -3,3 +3,4 @@
 .env
 bower
 /.idea
+bundle.js
