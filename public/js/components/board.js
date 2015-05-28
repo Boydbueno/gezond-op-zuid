@@ -58,6 +58,15 @@ var Board = React.createClass({
 
     startCategory: function(category) {
         this.transitionTo('boardFood');
+
+        var message = {
+            event: "category:started",
+            data: {
+                category: 'food'
+            }
+        };
+
+        this.conn.send(JSON.stringify(message));
     }
 });
 
