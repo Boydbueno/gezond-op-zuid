@@ -6,6 +6,7 @@ var RouteHandler = Router.RouteHandler;
 var Navigation = Router.Navigation;
 
 var Client = React.createClass({
+    conn: {},
     mixins: [Navigation],
     getInitialState: function() {
         return {
@@ -40,8 +41,8 @@ var Client = React.createClass({
     },
 
     connect: function() {
-        var conn = new WebSocket('ws://gezond-op-zuid.app:8080');
-        conn.onopen = () => {
+        this.conn = new WebSocket('ws://gezond-op-zuid.app:8080');
+        this.conn.onopen = () => {
             console.log("Connection established!");
             var message = {
                 event: "player:joined",
@@ -50,7 +51,7 @@ var Client = React.createClass({
                 }
             };
 
-            conn.send(JSON.stringify(message));
+            this.conn.send(JSON.stringify(message));
 
             this.transitionTo('/');
         };
