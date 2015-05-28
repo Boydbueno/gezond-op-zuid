@@ -1,4 +1,8 @@
-var PlayerNameForm = React.createClass({
+var Router = ReactRouter;
+var Navigation = Router.Navigation;
+
+var Login = React.createClass({
+    mixins: [Navigation],
     getInitialState: function() {
         return {
             name: ""
@@ -12,25 +16,13 @@ var PlayerNameForm = React.createClass({
     connect: function(e) {
         e.preventDefault();
 
-        var conn = new WebSocket('ws://gezond-op-zuid.app:8080');
-        conn.onopen = function(e) {
-            console.log("Connection established!");
-            var message = {
-                event: "player:joined",
-                data: {
-                    name: this.state.name
-                }
-            };
-
-            conn.send(JSON.stringify(message));
-        }.bind(this);
-
-        
+        this.props.onConnect(this.state.name);
     },
 
     render: function() {
         return  (
             <div>
+                <h2>Login</h2>
                 <form onSubmit={this.connect}>
                     <input value={this.state.text} onChange={this.onChange} placeholder="Naam" />
                     <button>Deelnemen!</button>
@@ -39,3 +31,5 @@ var PlayerNameForm = React.createClass({
         );
     }
 });
+
+export default Login;

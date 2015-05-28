@@ -29,7 +29,10 @@ class Messenger implements MessageComponentInterface {
         foreach ($this->clients as $client) {
             if ($from !== $client) {
                 // The sender is not the receiver, send to each client connected
-                $client->send($msg);
+                $message = json_decode($msg);
+                $message->connectionId = $from->resourceId;
+                $message = json_encode($message);
+                $client->send($message);
             }
         }
     }
@@ -39,6 +42,16 @@ class Messenger implements MessageComponentInterface {
         $this->clients->detach($conn);
 
         echo "Connection {$conn->resourceId} has disconnected\n";
+
+        foreach ($this->clients as $client) {
+            // The sender is not the receiver, send to each client connected
+            $message = [
+                "event" => "player:left",
+                "connectionId" => $conn->resourceId
+            ];
+            $message = json_encode($message);
+            $client->send($message);
+        }
     }
 
     public function onError(ConnectionInterface $conn, \Exception $e) {
