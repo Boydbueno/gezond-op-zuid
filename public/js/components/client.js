@@ -23,6 +23,17 @@ var Client = React.createClass({
 
         if (!this.state.connected) {
             this.connect();
+
+            var message = {
+                event: "category:request",
+                data: {
+                    name: this.state.name
+                }
+            };
+
+            this.conn.onopen = () => {
+                this.conn.send(JSON.stringify(message));
+            }
         }
     },
 
@@ -43,6 +54,7 @@ var Client = React.createClass({
     connect: function() {
         this.conn = new WebSocket('ws://gezond-op-zuid.app:8080');
         this.conn.onopen = () => {
+            this.setState({ connected: true });
             console.log("Connection established!");
             var message = {
                 event: "player:joined",
