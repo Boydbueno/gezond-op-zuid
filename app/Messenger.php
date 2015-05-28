@@ -26,12 +26,23 @@ class Messenger implements MessageComponentInterface {
         echo sprintf('Connection %d sending message "%s" to %d other connection%s' . "\n"
             , $from->resourceId, $msg, $numRecv, $numRecv == 1 ? '' : 's');
 
+        $message = json_decode($msg);
+        $message->connectionId = $from->resourceId;
+        $target = isset($message->target) ? $message->target : null;
+        $message = json_encode($message);
+
+        if ($target) {
+            foreach ($this->clients as $client) {
+               if ($client->resourceId === $target) {
+                   $client->send($message);
+                   return;
+               }
+            }
+        }
+
         foreach ($this->clients as $client) {
             if ($from !== $client) {
                 // The sender is not the receiver, send to each client connected
-                $message = json_decode($msg);
-                $message->connectionId = $from->resourceId;
-                $message = json_encode($message);
                 $client->send($message);
             }
         }
@@ -44,7 +55,6 @@ class Messenger implements MessageComponentInterface {
         echo "Connection {$conn->resourceId} has disconnected\n";
 
         foreach ($this->clients as $client) {
-            // The sender is not the receiver, send to each client connected
             $message = [
                 "event" => "player:left",
                 "connectionId" => $conn->resourceId
