@@ -27,7 +27,7 @@ var ClientFirstQuestion = React.createClass({
     render: function() {
         return (
             <div>
-                <ClientMultipleChoiceQuestion {...this.props} />
+                <ClientMultipleChoiceQuestion question={this.props.question} answers={this.props.answers} onAnswerSelected={this.props.onAnswerSelected} />
             </div>
         );
     }

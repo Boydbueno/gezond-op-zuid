@@ -42,9 +42,13 @@ var Client = React.createClass({
         return (
             <div>
                 <h1>Client</h1>
-                <RouteHandler name={this.state.name} onConnect={this.connectHandler} />
+                <RouteHandler name={this.state.name} onConnect={this.connectHandler} onAnswerSelected={this.answerSelected} />
             </div>
         );
+    },
+
+    answerSelected: function(answer) {
+        console.log(answer);
     },
 
     connectHandler: function(name) {
