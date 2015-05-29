@@ -23,7 +23,10 @@ var ClientMultipleChoiceQuestion = React.createClass({
     },
 
     onAnswerSelected: function(e) {
-        this.setState({ currentAnswer: e.target.getAttribute('id')}, () => { this.props.onAnswerSelected(this.state.currentAnswer); });
+        var currentAnswer = e.target.getAttribute('id');
+        if (currentAnswer == this.state.currentAnswer) return;
+
+        this.setState({ currentAnswer }, () => { this.props.onAnswerSelected(this.state.currentAnswer); });
     }
 
 });
