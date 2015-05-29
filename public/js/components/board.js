@@ -21,7 +21,7 @@ var Board = React.createClass({
         return (
             <div>
                 <h1>Board</h1>
-                <RouteHandler onQuestionChange={this.startQuestion} onStartCategory={this.startCategory}/>
+                <RouteHandler onQuestionChange={this.startQuestion} onStartCategory={this.startCategory} connection={this.conn}/>
             </div>
         );
     },
