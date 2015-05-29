@@ -26,9 +26,8 @@ var routes = (
         </Route>
         <Route handler={Board}>
             <Route name="board" path="board" handler={CategorySelection} />
-            <Route name="boardFood" path="board/food" handler={BoardFoodCategory}>
-                <Route name="boardFirstQuestion" path="1" handler={BoardFirstQuestion} />
-            </Route>
+            <Route name="boardFood" path="board/food" handler={BoardFoodCategory} />
+            <Route name="boardFirstQuestion" path="board/food/1" handler={BoardFirstQuestion} />
         </Route>
     </Route>
 );

@@ -1,6 +1,7 @@
 var Router = ReactRouter;
 var RouteHandler = Router.RouteHandler;
 var Navigation = Router.Navigation;
+var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 
 var Board = React.createClass({
     conn: {},
@@ -18,10 +19,10 @@ var Board = React.createClass({
     },
 
     render: function() {
+        var name = this.context.router.getCurrentPath();
         return (
             <div>
-                <h1>Board</h1>
-                <RouteHandler onQuestionChange={this.startQuestion} onStartCategory={this.startCategory} connection={this.conn}/>
+                <RouteHandler key={name} onQuestionChange={this.startQuestion} onStartCategory={this.startCategory} connection={this.conn} />
             </div>
         );
     },
@@ -34,7 +35,7 @@ var Board = React.createClass({
         this.conn.onmessage = (e) => {
             var message = JSON.parse(e.data);
             console.log(message);
-            switch(message.event) {
+            switch (message.event) {
                 case 'player:joined':
                     this.addPlayer({
                         id: message.connectionId,
@@ -57,13 +58,13 @@ var Board = React.createClass({
 
     removePlayer: function(id) {
         this.state.players = this.state.players.filter(function(player) {
-           return player.id !== id;
+            return player.id !== id;
         });
     },
 
     startCategory: function(category) {
         this.setState({category: category});
-        this.transitionTo('boardFirstQuestion');
+        this.transitionTo('boardFood');
 
         this.sendCurrentState();
     },

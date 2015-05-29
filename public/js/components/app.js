@@ -5,7 +5,9 @@ var App = React.createClass({
     render: function() {
         return (
             <div>
-                <RouteHandler/>
+                <div className="container">
+                    <RouteHandler />
+                </div>
             </div>
         );
     }
