@@ -31,7 +31,7 @@ var Client = React.createClass({
                 }
             };
 
-            // Todo: If you login too late, you won't get synced untill you refresh again. It's rather weird.
+            // Todo: If you login too late, you won't get synced until you refresh again. It's rather weird.
             this.conn.onopen = () => {
                 this.conn.send(JSON.stringify(message));
             }

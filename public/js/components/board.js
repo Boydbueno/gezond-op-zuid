@@ -62,7 +62,7 @@ var Board = React.createClass({
 
     startCategory: function(category) {
         this.setState({category: category});
-        this.transitionTo('boardFood');
+        this.transitionTo('boardFirstQuestion');
 
         this.sendCurrentCategory();
     },
