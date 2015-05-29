@@ -16,7 +16,9 @@ var BoardMultipleChoiceQuestion = React.createClass({
                 </header>
                 <ul>
                     {this.props.answers.map((answer, i) => {
-                        return <li key={i}>{answer.label + " " + (this.props.givenAnswers[i] == undefined ? "" : this.props.givenAnswers[i].length)}</li>;
+                        return (
+                            <li key={i}>{answer.label + " " + this.props.givenAnswers[i].length}</li>
+                        );
                     })}
                 </ul>
             </div>

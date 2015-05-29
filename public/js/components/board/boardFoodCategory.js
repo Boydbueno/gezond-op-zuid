@@ -15,10 +15,6 @@ var BoardFoodCategory = React.createClass({
         this.startTime();
     },
 
-    componentWillUnmount: function() {
-        console.log("component unmounting");
-    },
-
     render: function() {
         return (
             <div>

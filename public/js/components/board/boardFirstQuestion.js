@@ -27,11 +27,23 @@ var BoardFirstQuestion = React.createClass({
 
     getInitialState: function() {
         return {
-            answers: {}
+            givenAnswers: {},
+            totalAnswer: 0
         }
     },
 
     componentWillMount: function() {
+
+        var givenAnswers = this.state.givenAnswers;
+
+        var len = this.props.answers.length;
+
+        for (var i = 0; i < len; i++) {
+            givenAnswers[i] = [];
+        }
+
+        this.setState({givenAnswers});
+
         this.props.onQuestionChange(1);
 
         this.props.connection.onmessage = (e) => {
@@ -60,7 +72,8 @@ var BoardFirstQuestion = React.createClass({
 
         answers[answerId].push(connectionId);
 
-        console.log(answers);
+
+
         this.setState({answers});
     },
 
@@ -77,7 +90,7 @@ var BoardFirstQuestion = React.createClass({
     render: function() {
         return (
             <div>
-                <BoardMultipleChoiceQuestion {...this.props} givenAnswers={this.state.answers}  />
+                <BoardMultipleChoiceQuestion {...this.props} givenAnswers={this.state.givenAnswers} totalAnswers={this.state.totalAnswers} />
             </div>
         );
     }
