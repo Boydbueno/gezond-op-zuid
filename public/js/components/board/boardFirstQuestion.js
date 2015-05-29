@@ -2,10 +2,6 @@ import BoardMultipleChoiceQuestion from './BoardMultipleChoiceQuestion';
 
 var BoardFirstQuestion = React.createClass({
 
-    componentWillMount: function() {
-        this.props.onQuestionChange(1);
-    },
-
     getDefaultProps: function() {
 
         return {
@@ -27,6 +23,39 @@ var BoardFirstQuestion = React.createClass({
             ]
         }
 
+    },
+
+    getInitialState: function() {
+        return {
+            answers: []
+        }
+    },
+
+    componentWillMount: function() {
+        this.props.onQuestionChange(1);
+
+        this.props.connection.onmessage = (e) => {
+            var message = JSON.parse(e.data);
+            console.log(message);
+            switch(message.event) {
+                case 'question:answered':
+                    this.addAnswer(message.data.answer, message.connectionId);
+                    break;
+            }
+        }
+    },
+
+    addAnswer: function(answerId, connectionId) {
+        var answers = this.state.answers;
+
+        answers.push({
+            connectionId: connectionId,
+            answerId: answerId
+        });
+
+        console.log(answers);
+
+        this.setState({answers});
     },
 
     render: function() {
