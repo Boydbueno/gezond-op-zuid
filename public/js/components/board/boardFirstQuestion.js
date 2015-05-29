@@ -27,7 +27,7 @@ var BoardFirstQuestion = React.createClass({
 
     getInitialState: function() {
         return {
-            answers: []
+            answers: {}
         }
     },
 
@@ -48,20 +48,36 @@ var BoardFirstQuestion = React.createClass({
     addAnswer: function(answerId, connectionId) {
         var answers = this.state.answers;
 
-        answers.push({
-            connectionId: connectionId,
-            answerId: answerId
-        });
+        // Todo: If player leaves.. we need to remove them from this list.
+
+        // First remove connectionId from all answers
+        answers = this.removeConnectionIdFromAnswers(answers, connectionId);
+
+        // Key does not exists yet
+        if (!(answerId in answers)) {
+            answers[answerId] = [];
+        }
+
+        answers[answerId].push(connectionId);
 
         console.log(answers);
-
         this.setState({answers});
+    },
+
+    removeConnectionIdFromAnswers(answers, connectionId) {
+        for (var key in answers) {
+            var index = answers[key].indexOf(connectionId);
+            if (index > -1) {
+                answers[key].splice(index, 1);
+            }
+        }
+        return answers;
     },
 
     render: function() {
         return (
             <div>
-                <BoardMultipleChoiceQuestion {...this.props} />
+                <BoardMultipleChoiceQuestion {...this.props} givenAnswers={this.state.answers}  />
             </div>
         );
     }
