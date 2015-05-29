@@ -84,7 +84,9 @@ var Board = React.createClass({
             }
         };
 
-        this.conn.send(JSON.stringify(message));
+        this.conn.onopen = () => {
+            this.conn.send(JSON.stringify(message));
+        }
     }
 });
 
