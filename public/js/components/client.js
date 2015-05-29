@@ -48,7 +48,14 @@ var Client = React.createClass({
     },
 
     answerSelected: function(answer) {
-        console.log(answer);
+        var message = {
+            event: "question:answered",
+            data: {
+                answer
+            }
+        };
+
+        this.conn.send(JSON.stringify(message));
     },
 
     connectHandler: function(name) {
