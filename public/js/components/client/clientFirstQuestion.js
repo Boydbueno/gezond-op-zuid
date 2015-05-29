@@ -1,10 +1,6 @@
-import BoardMultipleChoiceQuestion from './BoardMultipleChoiceQuestion';
+import ClientMultipleChoiceQuestion from './ClientMultipleChoiceQuestion';
 
-var BoardFirstQuestion = React.createClass({
-
-    componentWillMount: function() {
-        this.props.onQuestionChange(1);
-    },
+var ClientFirstQuestion = React.createClass({
 
     getDefaultProps: function() {
 
@@ -18,8 +14,7 @@ var BoardFirstQuestion = React.createClass({
                     label: '24'
                 },
                 {
-                    label: '58',
-                    correct: true
+                    label: '58'
                 },
                 {
                     label: '82'
@@ -32,11 +27,11 @@ var BoardFirstQuestion = React.createClass({
     render: function() {
         return (
             <div>
-                <BoardMultipleChoiceQuestion {...this.props} />
+                <ClientMultipleChoiceQuestion {...this.props} />
             </div>
         );
     }
 
 });
 
-export default BoardFirstQuestion;
+export default ClientFirstQuestion;

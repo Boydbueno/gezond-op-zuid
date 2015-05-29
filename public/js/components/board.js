@@ -8,6 +8,7 @@ var Board = React.createClass({
     getInitialState: function() {
         return {
             category: null,
+            question: null,
             players: []
         }
     },
@@ -20,7 +21,7 @@ var Board = React.createClass({
         return (
             <div>
                 <h1>Board</h1>
-                <RouteHandler onStartCategory={this.startCategory}/>
+                <RouteHandler onQuestionChange={this.startQuestion} onStartCategory={this.startCategory}/>
             </div>
         );
     },
@@ -43,8 +44,8 @@ var Board = React.createClass({
                 case 'player:left':
                     this.removePlayer(message.connectionId);
                     break;
-                case 'category:request':
-                    this.sendCurrentCategory(message.connectionId);
+                case 'state:request':
+                    this.sendCurrentState(message.connectionId);
                     break;
             }
         };
@@ -64,15 +65,22 @@ var Board = React.createClass({
         this.setState({category: category});
         this.transitionTo('boardFirstQuestion');
 
-        this.sendCurrentCategory();
+        this.sendCurrentState();
     },
 
-    sendCurrentCategory: function(connectionId = null) {
+    startQuestion: function(question) {
+        console.log("Start question");
+        this.setState({question: question});
+        this.sendCurrentState();
+    },
+
+    sendCurrentState: function(connectionId = null) {
         var message = {
-            event: "category:started",
+            event: "state:changed",
             target: connectionId,
             data: {
-                category: this.state.category
+                category: this.state.category,
+                question: this.state.question
             }
         };
 

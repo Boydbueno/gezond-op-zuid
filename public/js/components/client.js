@@ -25,7 +25,7 @@ var Client = React.createClass({
             this.connect();
 
             var message = {
-                event: "category:request",
+                event: "state:request",
                 data: {
                     name: this.state.name
                 }
@@ -72,8 +72,12 @@ var Client = React.createClass({
         this.conn.onmessage = (e) => {
             var message = JSON.parse(e.data);
             switch(message.event) {
-                case 'category:started':
-                    this.transitionTo("clientFood");
+                case 'state:changed':
+                    console.log(message);
+                    if (message.data.category) {
+                        this.transitionTo("/" + message.data.category + "/" + message.data.question);
+                    }
+
                     break;
             }
         };

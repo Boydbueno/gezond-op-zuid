@@ -6,7 +6,7 @@ var BoardFoodCategory = React.createClass({
         return (
             <div>
                 <h1>Food category!</h1>
-                <RouteHandler />
+                <RouteHandler onQuestionChange={this.props.onQuestionChange}/>
             </div>
         )
     }

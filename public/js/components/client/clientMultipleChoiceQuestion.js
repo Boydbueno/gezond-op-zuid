@@ -1,4 +1,4 @@
-var MultipleChoiceQuestion = React.createClass({
+var ClientMultipleChoiceQuestion = React.createClass({
 
     render: function() {
         return (
@@ -15,4 +15,4 @@ var MultipleChoiceQuestion = React.createClass({
 
 });
 
-export default MultipleChoiceQuestion;
+export default ClientMultipleChoiceQuestion;
