@@ -24,8 +24,8 @@ var BoardFoodCategory = React.createClass({
                     </h1>
                 </header>
                 <section className="row">
-                    <image className="span7" src="./img/icon_food.jpg" />
-                    <section className="span5 subcategories">
+                    <image className="col-md-7" src="./img/icon_food.jpg" />
+                    <section className="col-md-5 subcategories">
                         <h1>Subcategorieën</h1>
                         <ul>
                             <li><Link to="boardFirstQuestion">Vitamines</Link></li>

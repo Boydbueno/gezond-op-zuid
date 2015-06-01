@@ -28,19 +28,19 @@ var CategorySelection = React.createClass({
         return (
             <div>
                 <div className="row">
-                    <div className="span6">
-                        <img className="img-polaroid" onClick={this.selectCategory} src={this.state.food.active ? this.state.food.active_image : this.state.food.image} />
+                    <div className="col-md-6">
+                        <img className="col-md-12" onClick={this.selectCategory} src={this.state.food.active ? this.state.food.active_image : this.state.food.image} />
                     </div>
-                    <div className="span6">
-                        <img className="img-polaroid" src={this.state.movement.active ? this.state.movement.active_image : this.state.movement.image} />
+                    <div className="col-md-6">
+                        <img className="col-md-12" src={this.state.movement.active ? this.state.movement.active_image : this.state.movement.image} />
                     </div>
                 </div>
                 <div className="row">
-                    <div className="span6">
-                        <img className="img-polaroid" src={this.state.dream.active ? this.state.dream.active_image : this.state.dream.image} />
+                    <div className="col-md-6">
+                        <img className="col-md-12" src={this.state.dream.active ? this.state.dream.active_image : this.state.dream.image} />
                     </div>
-                    <div className="span6">
-                        <img className="img-polaroid" src={this.state.happiness.active ? this.state.happiness.active_image : this.state.happiness.image} />
+                    <div className="col-md-6">
+                        <img className="col-md-12" src={this.state.happiness.active ? this.state.happiness.active_image : this.state.happiness.image} />
                     </div>
                 </div>
             </div>
