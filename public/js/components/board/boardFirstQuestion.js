@@ -58,8 +58,8 @@ var BoardFirstQuestion = React.createClass({
     },
 
     addAnswer: function(answerId, connectionId) {
-        var answers = this.state.answers;
-
+        var answers = this.state.givenAnswers;
+        console.log(answers);
         // Todo: If player leaves.. we need to remove them from this list.
 
         // First remove connectionId from all answers
@@ -71,8 +71,6 @@ var BoardFirstQuestion = React.createClass({
         }
 
         answers[answerId].push(connectionId);
-
-
 
         this.setState({answers});
     },

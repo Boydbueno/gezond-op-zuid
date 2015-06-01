@@ -6,12 +6,11 @@ var RouteHandler = Router.RouteHandler;
 var Navigation = Router.Navigation;
 
 var Client = React.createClass({
-    conn: {},
+    conn: undefined,
     mixins: [Navigation],
     getInitialState: function() {
         return {
-            name: localStorage["name"] || "",
-            connected: false
+            name: localStorage["name"] || ""
         }
     },
 
@@ -21,20 +20,26 @@ var Client = React.createClass({
             return;
         }
 
-        if (!this.state.connected) {
+        console.log(this.conn);
+
+        if (!this.conn) {
             this.connect();
+        }
 
-            var message = {
-                event: "state:request",
-                data: {
-                    name: this.state.name
-                }
-            };
-
-            // Todo: If you login too late, you won't get synced until you refresh again. It's rather weird.
-            this.conn.onopen = () => {
-                this.conn.send(JSON.stringify(message));
+        var message = {
+            event: "state:request",
+            data: {
+                name: this.state.name
             }
+        };
+
+        // Todo: If you login too late, you won't get synced until you refresh again. It's rather weird.
+        if (this.conn.readyState === this.conn.OPEN) {
+            this.conn.send(JSON.stringify(message));
+        } else {
+            this.conn.addEventListener('open', () => {
+                this.conn.send(JSON.stringify(message));
+            });
         }
     },
 
@@ -65,9 +70,8 @@ var Client = React.createClass({
 
     connect: function() {
         this.conn = new WebSocket('ws://gezond-op-zuid.app:8080');
-        this.conn.onopen = () => {
-            this.setState({ connected: true });
-            console.log("Connection established!");
+
+        this.conn.addEventListener('open', () => {
             var message = {
                 event: "player:joined",
                 data: {
@@ -78,20 +82,21 @@ var Client = React.createClass({
             this.conn.send(JSON.stringify(message));
 
             this.transitionTo('/');
-        };
+        });
 
-        this.conn.onmessage = (e) => {
+        this.conn.addEventListener('message', (e) => {
             var message = JSON.parse(e.data);
             switch(message.event) {
                 case 'state:changed':
                     console.log(message);
-                    if (message.data.category) {
-                        this.transitionTo("/" + message.data.category + "/" + message.data.question);
+                    if (message.data.path) {
+                        this.transitionTo(message.data.path);
                     }
 
                     break;
             }
-        };
+        });
+
     },
 
     setName: function(name) {

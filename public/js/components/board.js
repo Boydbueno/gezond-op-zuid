@@ -1,7 +1,6 @@
 var Router = ReactRouter;
 var RouteHandler = Router.RouteHandler;
 var Navigation = Router.Navigation;
-var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 
 var Board = React.createClass({
     conn: {},
@@ -29,10 +28,8 @@ var Board = React.createClass({
 
     connect: function() {
         this.conn = new WebSocket('ws://gezond-op-zuid.app:8080');
-        this.conn.onopen = function(e) {
-            console.log("Connection established!");
-        };
-        this.conn.onmessage = (e) => {
+
+        this.conn.addEventListener('message', (e) => {
             var message = JSON.parse(e.data);
             console.log(message);
             switch (message.event) {
@@ -49,7 +46,7 @@ var Board = React.createClass({
                     this.sendCurrentState(message.connectionId);
                     break;
             }
-        };
+        });
     },
 
     addPlayer: function(player) {
@@ -81,13 +78,19 @@ var Board = React.createClass({
             target: connectionId,
             data: {
                 category: this.state.category,
-                question: this.state.question
+                question: this.state.question,
+                path: window.location.hash.replace('#/board', '')
             }
         };
 
-        this.conn.onopen = () => {
+        if (this.conn.readyState === this.conn.OPEN) {
             this.conn.send(JSON.stringify(message));
+        } else {
+            this.conn.addEventListener('open', () => {
+                this.conn.send(JSON.stringify(message));
+            });
         }
+
     }
 });
 
