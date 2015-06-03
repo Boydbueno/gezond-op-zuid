@@ -27,7 +27,7 @@ var Board = React.createClass({
     },
 
     connect: function() {
-        this.conn = new WebSocket('ws://gezond-op-zuid.app:8080');
+        this.conn = new WebSocket('ws://' + LaVie.websockets.domain + ':' + LaVie.websockets.port);
 
         this.conn.addEventListener('message', (e) => {
             var message = JSON.parse(e.data);

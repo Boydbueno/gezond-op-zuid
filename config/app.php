@@ -145,6 +145,8 @@ return [
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
 
+        'Laracasts\Utilities\JavaScript\JavascriptServiceProvider',
+
 	],
 
 	/*
