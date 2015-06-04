@@ -20,8 +20,6 @@ var Client = React.createClass({
             return;
         }
 
-        console.log(this.conn);
-
         if (!this.conn) {
             this.connect();
         }
@@ -88,7 +86,7 @@ var Client = React.createClass({
             var message = JSON.parse(e.data);
             switch(message.event) {
                 case 'state:changed':
-                    console.log(message);
+
                     if (message.data.path) {
                         this.transitionTo(message.data.path);
                     }
