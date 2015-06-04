@@ -48,7 +48,7 @@ var BoardFirstQuestion = React.createClass({
 
         this.props.connection.onmessage = (e) => {
             var message = JSON.parse(e.data);
-            console.log(message);
+
             switch(message.event) {
                 case 'question:answered':
                     this.addAnswer(message.data.answer, message.connectionId);
@@ -59,7 +59,7 @@ var BoardFirstQuestion = React.createClass({
 
     addAnswer: function(answerId, connectionId) {
         var answers = this.state.givenAnswers;
-        console.log(answers);
+
         // Todo: If player leaves.. we need to remove them from this list.
 
         // First remove connectionId from all answers

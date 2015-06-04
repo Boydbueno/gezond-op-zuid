@@ -31,7 +31,6 @@ var Board = React.createClass({
 
         this.conn.addEventListener('message', (e) => {
             var message = JSON.parse(e.data);
-            console.log(message);
             switch (message.event) {
                 case 'player:joined':
                     this.addPlayer({
@@ -67,7 +66,6 @@ var Board = React.createClass({
     },
 
     startQuestion: function(question) {
-        console.log("Start question");
         this.setState({question: question});
         this.sendCurrentState();
     },
