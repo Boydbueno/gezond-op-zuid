@@ -7,14 +7,21 @@ var ClientMultipleChoiceQuestion = React.createClass({
     },
 
     render: function() {
+        var cx = React.addons.classSet;
+
         return (
             <div>
                 { this.props.question }
                     {this.props.answers.map((answer, i) => {
+                        var classes = cx({
+                            active: this.state.currentAnswer == i,
+                            answer: true
+                        });
                         return (
                             <div key={i}>
-                                <input type="radio" id={i} name="answer" checked={this.state.currentAnswer == i} onChange={this.onAnswerSelected} />
-                                <label htmlFor={i}>{answer.label}</label>
+                                <div id={i} className={classes} onClick={this.onAnswerSelected}>
+                                    {answer.label}
+                                </div>
                             </div>
                         );
                     })}
@@ -24,6 +31,7 @@ var ClientMultipleChoiceQuestion = React.createClass({
 
     onAnswerSelected: function(e) {
         var currentAnswer = e.target.getAttribute('id');
+
         if (currentAnswer == this.state.currentAnswer) return;
 
         this.setState({ currentAnswer }, () => { this.props.onAnswerSelected(this.state.currentAnswer); });
