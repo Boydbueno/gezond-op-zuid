@@ -15,13 +15,13 @@ var BoardMultipleChoiceQuestion = React.createClass({
                         </div>
                         <div className="span10">
                             <p className="lead">
-                                {this.props.question}
+                                {this.props.question.question}
                             </p>
                         </div>
                     </div>
                 </header>
                 <ul>
-                    {this.props.answers.map((answer, i) => {
+                    {this.props.question.answers.map((answer, i) => {
                         var percentage = this.props.givenAnswers[i].length / totalAnswers * 100 || 0;
 
                         return (

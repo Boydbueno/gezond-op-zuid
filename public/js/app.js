@@ -4,13 +4,13 @@ import Client from './components/Client';
 import Login from './components/client/Login';
 import ClientFoodCategory from './components/client/ClientFoodCategory';
 
-import ClientFirstQuestion from './components/client/ClientFirstQuestion';
+import ClientQuestion from './components/client/ClientQuestion';
 
 import Board from './components/Board';
 import CategorySelection from './components/board/CategorySelection';
 import BoardFoodCategory from './components/board/BoardFoodCategory';
 
-import BoardFirstQuestion from './components/board/BoardFirstQuestion';
+import BoardQuestion from './components/board/BoardQuestion';
 
 var Router = ReactRouter;
 var Route = Router.Route;
@@ -21,13 +21,13 @@ var routes = (
         <Route name="student" path="/" handler={Client}>
             <Route name="login" handler={Login} />
             <Route name="clientFood" path="food" handler={ClientFoodCategory}>
-                <Route name="clientFirstQuestion" path="1" handler={ClientFirstQuestion} />
+                <Route path=":id" handler={ClientQuestion} />
             </Route>
         </Route>
         <Route handler={Board}>
             <Route name="board" path="board" handler={CategorySelection} />
             <Route name="boardFood" path="board/food" handler={BoardFoodCategory} />
-            <Route name="boardFirstQuestion" path="board/food/1" handler={BoardFirstQuestion} />
+            <Route path="board/food/:id" handler={BoardQuestion} />
         </Route>
     </Route>
 );

@@ -11,8 +11,8 @@ var ClientMultipleChoiceQuestion = React.createClass({
 
         return (
             <div>
-                { this.props.question }
-                    {this.props.answers.map((answer, i) => {
+                { this.props.question.question }
+                    {this.props.question.answers.map((answer, i) => {
                         var classes = cx({
                             active: this.state.currentAnswer == i,
                             answer: true

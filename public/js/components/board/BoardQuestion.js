@@ -1,42 +1,23 @@
 import BoardMultipleChoiceQuestion from './BoardMultipleChoiceQuestion';
+import Questions from './../Questions';
 
 var BoardFirstQuestion = React.createClass({
 
-    getDefaultProps: function() {
-
-        return {
-            question: 'Tomatenketchup bevat veel gezonde tomaten maar ook veel suiker. Hoeveel suikerklontjes zitten er in een fles van 875ml?',
-            answers: [
-                {
-                    label: '8'
-                },
-                {
-                    label: '24'
-                },
-                {
-                    label: '58',
-                    correct: true
-                },
-                {
-                    label: '82'
-                }
-            ]
-        }
-
-    },
-
     getInitialState: function() {
         return {
+            question: null,
             givenAnswers: {},
             totalAnswer: 0
         }
     },
 
     componentWillMount: function() {
+        var id = this.props.params.id;
+        this.setState({ question: Questions[id] });
 
         var givenAnswers = this.state.givenAnswers;
 
-        var len = this.props.answers.length;
+        var len = Questions[id].answers.length;
 
         for (var i = 0; i < len; i++) {
             givenAnswers[i] = [];
@@ -88,7 +69,7 @@ var BoardFirstQuestion = React.createClass({
     render: function() {
         return (
             <div>
-                <BoardMultipleChoiceQuestion {...this.props} givenAnswers={this.state.givenAnswers} totalAnswers={this.state.totalAnswers} />
+                <BoardMultipleChoiceQuestion {...this.props} question={this.state.question} givenAnswers={this.state.givenAnswers} totalAnswers={this.state.totalAnswers} />
             </div>
         );
     }
