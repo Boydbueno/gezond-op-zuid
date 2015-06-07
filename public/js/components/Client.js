@@ -67,7 +67,7 @@ var Client = React.createClass({
     },
 
     connect: function() {
-        this.conn = new WebSocket('ws://' + LaVie.websockets.domain + ':' + LaVie.websockets.port);
+        this.conn = new WebSocket('ws://' + Vitalous.websockets.domain + ':' + Vitalous.websockets.port);
 
         this.conn.addEventListener('open', () => {
             var message = {
