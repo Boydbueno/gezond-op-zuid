@@ -12,9 +12,13 @@ import BoardFoodCategory from './components/board/BoardFoodCategory';
 
 import BoardQuestion from './components/board/BoardQuestion';
 
+import Conn from './components/Conn';
+
 var Router = ReactRouter;
 var Route = Router.Route;
 var RouteHandler = Router.RouteHandler;
+
+Conn.connect();
 
 var routes = (
     <Route handler={App}>
@@ -33,5 +37,16 @@ var routes = (
 );
 
 Router.run(routes, function (Handler) {
+    if (window.location.hash.includes('#/board')) {
+        var message = {
+            event: "state:changed",
+            data: {
+                path: window.location.hash.replace('#/board', '')
+            }
+        };
+
+        Conn.send(message);
+    }
+
     React.render(<Handler/>, document.getElementById('app'));
 });

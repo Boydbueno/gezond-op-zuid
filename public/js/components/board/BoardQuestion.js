@@ -1,7 +1,10 @@
 import BoardMultipleChoiceQuestion from './BoardMultipleChoiceQuestion';
 import Questions from './../Questions';
 
-var BoardFirstQuestion = React.createClass({
+import Conn from './../Conn';
+Conn.connect();
+
+var BoardQuestion = React.createClass({
 
     getInitialState: function() {
         return {
@@ -25,9 +28,7 @@ var BoardFirstQuestion = React.createClass({
 
         this.setState({givenAnswers});
 
-        this.props.onQuestionChange(1);
-
-        this.props.connection.onmessage = (e) => {
+        Conn.onMessage((e) => {
             var message = JSON.parse(e.data);
 
             switch(message.event) {
@@ -35,7 +36,7 @@ var BoardFirstQuestion = React.createClass({
                     this.addAnswer(message.data.answer, message.connectionId);
                     break;
             }
-        }
+        });
     },
 
     addAnswer: function(answerId, connectionId) {
@@ -76,4 +77,4 @@ var BoardFirstQuestion = React.createClass({
 
 });
 
-export default BoardFirstQuestion;
+export default BoardQuestion;

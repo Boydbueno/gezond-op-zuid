@@ -1,4 +1,8 @@
+var Router = ReactRouter;
+var Navigation = Router.Navigation;
+
 var CategorySelection = React.createClass({
+    mixins: [Navigation],
     getInitialState: function() {
         return {
             food: {
@@ -52,7 +56,7 @@ var CategorySelection = React.createClass({
         food.active = true;
         this.setState({food});
 
-        this.props.onStartCategory('food');
+        this.transitionTo('boardFood');
     }
 });
 

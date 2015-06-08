@@ -28,7 +28,7 @@ var BoardFoodCategory = React.createClass({
                     <section className="col-md-5 subcategories">
                         <h1>Subcategorieën</h1>
                         <ul>
-                            <li><Link to="boardFirstQuestion">Vitamines</Link></li>
+                            <li><Link to="/board/food/1">Vitamines</Link></li>
                             <li></li>
                             <li></li>
                             <li></li>
