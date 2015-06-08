@@ -84,7 +84,7 @@ var Client = React.createClass({
 
         this.conn.addEventListener('message', (e) => {
             var message = JSON.parse(e.data);
-            switch(message.event) {
+            switch (message.event) {
                 case 'state:changed':
 
                     if (message.data.path) {
