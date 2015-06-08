@@ -21,7 +21,7 @@ var BoardQuestion = React.createClass({
         this.setState({ question });
 
         // Todo: This needs to be streamlined, but does for now.
-        if (question.type == "multipleChoice") {
+        if (question.type == "MultipleChoice") {
             var givenAnswers = this.state.givenAnswers;
 
             var len = Questions[id].answers.length;
