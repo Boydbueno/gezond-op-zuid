@@ -14,6 +14,12 @@ var ClientFirstQuestion = React.createClass({
         this.setState({question: Questions[id]});
     },
 
+    componentWillReceiveProps: function(nextProps) {
+        var id = nextProps.params.id;
+        this.setState({question: Questions[id]});
+
+    },
+
     render: function() {
         return (
             <div>

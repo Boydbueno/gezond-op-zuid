@@ -36,7 +36,6 @@ var Client = React.createClass({
                 case 'state:changed':
 
                     if (message.data.path) {
-                        console.log(message.data.path);
                         this.transitionTo(message.data.path);
                     }
 
