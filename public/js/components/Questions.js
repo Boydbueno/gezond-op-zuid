@@ -1,5 +1,6 @@
 var Questions = {
     "1": {
+        "type": "MultipleChoice",
         "question": "Tomatenketchup bevat veel gezonde tomaten maar ook veel suiker. Hoeveel suikerklontjes zitten er in een fles van 875ml?",
         "answers": [
             {
@@ -18,6 +19,7 @@ var Questions = {
         ]
     },
     "2": {
+        "type": "MultipleChoice",
         "question": "Hoeveel suikerklontjes kun je op jaarbasis besparen als je je dagelijkse blikje cola van 33 cl laat staan?",
         "answers": [
             {
@@ -36,6 +38,7 @@ var Questions = {
         ]
     },
     "3": {
+        "type": "MultipleChoice",
         "question": "Als je net zo’n goede voetballer wil worden als Robin van Persie, wat moet je dan als broodbeleg eten?",
         "answers": [
             {
@@ -53,6 +56,7 @@ var Questions = {
         ]
     },
     "4": {
+        "type": "MultipleChoice",
         "question": "Welke vitaminesoort bevat pindakaas?",
         "answers": [
             {
@@ -67,6 +71,7 @@ var Questions = {
         ]
     },
     "5": {
+        "type": "MultipleChoice",
         "question": "Welke soort producten zullen de meeste vitamines en mineralen bevatten?",
         "answers": [
             {
@@ -81,6 +86,7 @@ var Questions = {
         ]
     },
     "6": {
+        "type": "MultipleChoice",
         "question": "Vitamine C is goed voor o.a. de weerstand en gezonde tanden. Waar is het nog meer goed voor?",
         "answers": [
             {
@@ -95,6 +101,7 @@ var Questions = {
         ]
     },
     "7": {
+        "type": "MultipleChoice",
         "question": "Welke fruitsoorten bevatten de meeste vitamine C",
         "answers": [
             {
@@ -109,6 +116,7 @@ var Questions = {
         ]
     },
     "8": {
+        "type": "MultipleChoice",
         "question": "Hoe merk je dat je te weinig vitamine A binnenkrijgt?",
         "answers": [
             {
@@ -123,6 +131,7 @@ var Questions = {
         ]
     },
     "9": {
+        "type": "MultipleChoice",
         "question": "Stelling: diepvriesgroenten bevatten evenveel vitamines als verse groenten",
         "answers": [
             {
@@ -134,6 +143,7 @@ var Questions = {
         ]
     },
     "10": {
+        "type": "MultipleChoice",
         "question": "Waarom is pure chocolade net iets gezonder dan witte chocolade?",
         "answers": [
             {
@@ -148,6 +158,7 @@ var Questions = {
         ]
     },
     "11": {
+        "type": "MultipleChoice",
         "question": "Vitamine B11, ook wel bekend als foliumzuur, is belangrijk voor het aanmaken van bloed. Waaruit haalt je lichaam vitamine B11?",
         "answers": [
             {
@@ -165,6 +176,7 @@ var Questions = {
         ]
     },
     "12": {
+        "type": "MultipleChoice",
         "question": "Hoe krijg net zo’n mooie glimlach als Beyoncé?",
         "answers": [
             {
@@ -178,6 +190,19 @@ var Questions = {
             },
             {
                 "label": "Door veel water te drinken"
+            }
+        ]
+    },
+    "13": {
+        "type": "Versus",
+        "components": [
+            {
+                "label": "Big Mac",
+                "image": "http://lorempixel.com/300/300/"
+            },
+            {
+                "label": "Turkse Pizza",
+                "image": "http://lorempixel.com/300/300/"
             }
         ]
     }

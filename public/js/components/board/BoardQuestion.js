@@ -1,4 +1,5 @@
 import BoardMultipleChoiceQuestion from './BoardMultipleChoiceQuestion';
+import BoardVersusQuestion from './BoardVersusQuestion';
 import Questions from './../Questions';
 
 import Conn from './../Conn';
@@ -16,27 +17,31 @@ var BoardQuestion = React.createClass({
 
     componentWillMount: function() {
         var id = this.props.params.id;
-        this.setState({ question: Questions[id] });
+        var question = Questions[id];
+        this.setState({ question });
 
-        var givenAnswers = this.state.givenAnswers;
+        // Todo: This needs to be streamlined, but does for now.
+        if (question.type == "multipleChoice") {
+            var givenAnswers = this.state.givenAnswers;
 
-        var len = Questions[id].answers.length;
+            var len = Questions[id].answers.length;
 
-        for (var i = 0; i < len; i++) {
-            givenAnswers[i] = [];
-        }
-
-        this.setState({givenAnswers});
-
-        Conn.onMessage((e) => {
-            var message = JSON.parse(e.data);
-
-            switch(message.event) {
-                case 'question:answered':
-                    this.addAnswer(message.data.answer, message.connectionId);
-                    break;
+            for (var i = 0; i < len; i++) {
+                givenAnswers[i] = [];
             }
-        });
+
+            this.setState({givenAnswers});
+
+            Conn.onMessage((e) => {
+                var message = JSON.parse(e.data);
+
+                switch (message.event) {
+                    case 'question:answered':
+                        this.addAnswer(message.data.answer, message.connectionId);
+                        break;
+                }
+            });
+        }
     },
 
     addAnswer: function(answerId, connectionId) {
@@ -68,9 +73,20 @@ var BoardQuestion = React.createClass({
     },
 
     render: function() {
+        var questionComponent;
+
+        switch (this.state.question.type) {
+            case "MultipleChoice":
+                questionComponent = <BoardMultipleChoiceQuestion {...this.props} question={this.state.question} givenAnswers={this.state.givenAnswers} totalAnswers={this.state.totalAnswers} />;
+                break;
+            case "Versus":
+                questionComponent = <BoardVersusQuestion question={this.state.question} />;
+                break;
+        }
+
         return (
             <div>
-                <BoardMultipleChoiceQuestion {...this.props} question={this.state.question} givenAnswers={this.state.givenAnswers} totalAnswers={this.state.totalAnswers} />
+                {questionComponent}
             </div>
         );
     }

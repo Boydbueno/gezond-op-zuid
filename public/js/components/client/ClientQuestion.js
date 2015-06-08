@@ -21,9 +21,17 @@ var ClientFirstQuestion = React.createClass({
     },
 
     render: function() {
+        var questionComponent;
+
+        switch (this.state.question.type) {
+            case "MultipleChoice":
+                questionComponent = <ClientMultipleChoiceQuestion question={this.state.question} onAnswerSelected={this.props.onAnswerSelected} />;
+                break;
+        }
+
         return (
             <div>
-                <ClientMultipleChoiceQuestion question={this.state.question} onAnswerSelected={this.props.onAnswerSelected} />
+                { questionComponent }
             </div>
         );
     }
