@@ -30,9 +30,11 @@ var ClientFirstQuestion = React.createClass({
         }
 
         return (
-            <div>
-                { questionComponent }
-            </div>
+            <section className="client-question">
+                <div className="client-question-inner">
+                    { questionComponent }
+                </div>
+            </section>
         );
     }
 
