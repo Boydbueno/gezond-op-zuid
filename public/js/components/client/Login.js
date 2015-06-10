@@ -21,11 +21,10 @@ var Login = React.createClass({
 
     render: function() {
         return  (
-            <div>
-                <h2>Login</h2>
+            <div className="login-form">
                 <form onSubmit={this.connect}>
-                    <input value={this.state.text} onChange={this.onChange} placeholder="Naam" />
-                    <button>Deelnemen!</button>
+                    <input className="input-element input-field" value={this.state.text} onChange={this.onChange} placeholder="Gebruikersnaam" />
+                    <button className="input-element submit-button">LOGIN</button>
                 </form>
             </div>
         );

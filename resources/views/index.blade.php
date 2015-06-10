@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Gezond op Zuid</title>
 
-    <link href="{{ asset('/bower/bootstrap/dist/css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ asset('/bower/bootstrap/dist/css/bootstrap.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('/css/style.css') }}"/>
 </head>
 <body>
 
