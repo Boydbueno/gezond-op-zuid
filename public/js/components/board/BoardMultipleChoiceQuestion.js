@@ -8,27 +8,25 @@ var BoardMultipleChoiceQuestion = React.createClass({
 
         return (
             <div>
-                <header className="well">
-                    <div className="row">
-                        <div className="span2">
-                            <h1>Vraag</h1>
-                        </div>
-                        <div className="span10">
-                            <p className="lead">
-                                {this.props.question.question}
-                            </p>
-                        </div>
-                    </div>
+                <header>
+                    <h1>{this.props.question.question}</h1>
                 </header>
-                <ul>
+                <div className="results">
                     {this.props.question.answers.map((answer, i) => {
                         var percentage = this.props.givenAnswers[i].length / totalAnswers * 100 || 0;
 
+                        percentage += "%";
+
                         return (
-                            <li key={i}>{answer.label + " " + percentage}</li>
+                            <div className="result" key={i}>
+                                <div className="percentage-bar-outer">
+                                    <div className="percentage-bar-inner" style={{height: percentage}}></div>
+                                </div>
+                                <span>{answer.label}</span>
+                            </div>
                         );
                     })}
-                </ul>
+                </div>
             </div>
         );
     }

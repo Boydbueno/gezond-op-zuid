@@ -85,3 +85,23 @@
 .answer.active {
     background-color: #757474;
 }
+
+.results {
+    height: 300px;
+}
+
+.result {
+    height: 100%;
+    float: left;
+    margin: 0 30px;
+}
+
+.percentage-bar-outer {
+    width: 50px;
+    height: 100%;
+}
+
+.percentage-bar-inner {
+    vertical-align: bottom;
+    background-color: #16912F;
+}
