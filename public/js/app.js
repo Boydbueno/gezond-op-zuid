@@ -26,9 +26,8 @@ var routes = (
     <Route handler={App}>
         <Route name="student" path="/" handler={Client}>
             <Route name="login" handler={Login} />
-            <Route name="clientFood" path="food" handler={ClientFoodCategory}>
-                <Route path=":id" handler={ClientQuestion} />
-            </Route>
+            <Route name="clientFood" path="food" handler={ClientFoodCategory} />
+            <Route path="food/:id" handler={ClientQuestion} />
             <DefaultRoute handler={ClientHome} />
         </Route>
         <Route handler={Board}>
