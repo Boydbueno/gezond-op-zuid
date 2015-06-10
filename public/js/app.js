@@ -1,6 +1,7 @@
 import App from './components/App';
 
 import Client from './components/Client';
+import ClientHome from './components/client/ClientHome';
 import Login from './components/client/Login';
 import ClientFoodCategory from './components/client/ClientFoodCategory';
 
@@ -17,6 +18,7 @@ import Conn from './components/Conn';
 var Router = ReactRouter;
 var Route = Router.Route;
 var RouteHandler = Router.RouteHandler;
+var DefaultRoute = Router.DefaultRoute;
 
 Conn.connect();
 
@@ -27,6 +29,7 @@ var routes = (
             <Route name="clientFood" path="food" handler={ClientFoodCategory}>
                 <Route path=":id" handler={ClientQuestion} />
             </Route>
+            <DefaultRoute handler={ClientHome} />
         </Route>
         <Route handler={Board}>
             <Route name="board" path="board" handler={CategorySelection} />

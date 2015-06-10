@@ -69,6 +69,7 @@ var Client = React.createClass({
 
     connectHandler: function(name) {
         this.setName(name);
+        this.transitionTo("/");
         this.join();
     },
 
