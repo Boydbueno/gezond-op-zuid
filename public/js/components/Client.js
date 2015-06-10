@@ -23,25 +23,7 @@ var Client = React.createClass({
             return;
         }
 
-        Conn.send({
-            event: "state:request",
-            data: {
-                name: this.state.name
-            }
-        });
-
-        Conn.onMessage((e) => {
-            var message = JSON.parse(e.data);
-            switch (message.event) {
-                case 'state:changed':
-
-                    if (message.data.path) {
-                        this.transitionTo(message.data.path);
-                    }
-
-                    break;
-            }
-        });
+        this.join();
     },
 
     render: function() {
@@ -63,9 +45,31 @@ var Client = React.createClass({
         Conn.send(message);
     },
 
+    join: function() {
+        Conn.send({
+            event: "state:request",
+            data: {
+                name: this.state.name
+            }
+        });
+
+        Conn.onMessage((e) => {
+            var message = JSON.parse(e.data);
+            switch (message.event) {
+                case 'state:changed':
+
+                    if (message.data.path) {
+                        this.transitionTo(message.data.path);
+                    }
+
+                    break;
+            }
+        });
+    },
+
     connectHandler: function(name) {
         this.setName(name);
-        this.connect();
+        this.join();
     },
 
     setName: function(name) {
