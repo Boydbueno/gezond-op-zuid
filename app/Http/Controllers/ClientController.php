@@ -1,4 +1,4 @@
-<?php namespace App\Http\Controllers;
+<?php namespace Vitalous\Http\Controllers;
 
 class ClientController extends Controller {
 

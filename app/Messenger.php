@@ -1,4 +1,4 @@
-<?php namespace App;
+<?php namespace Vitalous;
 
 use Ratchet\ConnectionInterface;
 use Ratchet\MessageComponentInterface;

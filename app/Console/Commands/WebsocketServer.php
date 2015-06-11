@@ -1,6 +1,6 @@
-<?php namespace App\Console\Commands;
+<?php namespace Vitalous\Console\Commands;
 
-use App\Messenger;
+use Vitalous\Messenger;
 use Illuminate\Console\Command;
 use Ratchet\Http\HttpServer;
 use Ratchet\Server\IoServer;

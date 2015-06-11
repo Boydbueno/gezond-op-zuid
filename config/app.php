@@ -139,11 +139,11 @@ return [
 		/*
 		 * Application Service Providers...
 		 */
-		'App\Providers\AppServiceProvider',
-		'App\Providers\BusServiceProvider',
-		'App\Providers\ConfigServiceProvider',
-		'App\Providers\EventServiceProvider',
-		'App\Providers\RouteServiceProvider',
+		'Vitalous\Providers\AppServiceProvider',
+		'Vitalous\Providers\BusServiceProvider',
+		'Vitalous\Providers\ConfigServiceProvider',
+		'Vitalous\Providers\EventServiceProvider',
+		'Vitalous\Providers\RouteServiceProvider',
 
         'Laracasts\Utilities\JavaScript\JavascriptServiceProvider',
 

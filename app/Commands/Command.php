@@ -1,4 +1,4 @@
-<?php namespace App\Commands;
+<?php namespace Vitalous\Commands;
 
 abstract class Command {
 

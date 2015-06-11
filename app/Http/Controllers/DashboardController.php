@@ -1,4 +1,4 @@
-<?php namespace App\Http\Controllers;
+<?php namespace Vitalous\Http\Controllers;
 
 class DashboardController extends Controller {
 
