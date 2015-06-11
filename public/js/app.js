@@ -1,3 +1,5 @@
+//var React = require('react/addons');
+
 import App from './components/App';
 
 import Client from './components/Client';
