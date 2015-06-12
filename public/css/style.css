@@ -66,15 +66,15 @@ body {
     height: 60px;
     margin-top: -60px;
     background-color: #EDEDED;
-    border-bottom: 3px solid black;
+    border-bottom: 2px solid black;
 }
 
 .question-type-icon {
     display: block;
     width: 60px;
     height: 60px;
-    border-left: 3px solid black;
-    border-bottom: 3px solid black;
+    border-left: 2px solid black;
+    border-bottom: 2px solid black;
     float: right;
     background-color: #F5F5F5;
 }
