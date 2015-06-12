@@ -2,30 +2,15 @@ var Router = ReactRouter;
 var { Route, RouteHandler, Link } = Router;
 
 var BoardFoodCategory = React.createClass({
-
-    getInitialState: function() {
-        return {
-            hours: 0,
-            minutes: 0
-        }
-    },
-
-    componentDidMount: function() {
-        this.updateTime();
-        this.startTime();
-    },
-
     render: function() {
         return (
             <div>
                 <header className="well">
-                    <h1>Maandag 1 juni
-                        <span className="pull-right">{this.state.hours}:{this.state.minutes}</span>
-                    </h1>
+                    <h1>Maandag 1 juni </h1>
                 </header>
-                <section className="row">
-                    <image className="col-md-7" src="./img/icon_food.jpg" />
-                    <section className="col-md-5 subcategories">
+                <section>
+                    <image src="./img/icon_food.jpg" />
+                    <section >
                         <h1>Subcategorieën</h1>
                         <ul>
                             <li><Link to="/board/food/1">Vitamines</Link></li>
@@ -39,17 +24,6 @@ var BoardFoodCategory = React.createClass({
                 </section>
             </div>
         )
-    },
-
-    startTime: function() {
-        this.interval = setInterval( () => {
-            this.updateTime();
-        }, 60000);
-    },
-
-    updateTime: function() {
-        var d = new Date();
-        this.setState({hours: (d.getHours()<10?'0':'') + d.getHours(), minutes: (d.getMinutes()<10?'0':'') + d.getMinutes()});
     }
 });
 
