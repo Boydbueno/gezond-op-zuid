@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<div id="app"></div>
+<div id="app" class="group"></div>
 
 <!-- Scripts -->
 <script src="{{ asset('/bower/jquery/dist/jquery.min.js') }}"></script>
