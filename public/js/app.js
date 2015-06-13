@@ -40,17 +40,22 @@ var routes = (
     </Route>
 );
 
-Router.run(routes, function (Handler) {
-    if (window.location.hash.includes('#/board')) {
-        var message = {
-            event: "state:changed",
-            data: {
-                path: window.location.hash.replace('#/board', '')
-            }
-        };
+google.load('visualization', '1.0', {'packages':['corechart']});
+google.setOnLoadCallback(start);
 
-        Conn.send(message);
-    }
+function start() {
+    Router.run(routes, function (Handler) {
+        if (window.location.hash.includes('#/board')) {
+            var message = {
+                event: "state:changed",
+                data: {
+                    path: window.location.hash.replace('#/board', '')
+                }
+            };
 
-    React.render(<Handler/>, document.getElementById('app'));
-});
+            Conn.send(message);
+        }
+
+        React.render(<Handler/>, document.getElementById('app'));
+    });
+}

@@ -14,6 +14,7 @@
 <div id="app" class="group"></div>
 
 <!-- Scripts -->
+<script src="https://www.google.com/jsapi"></script>
 <script src="{{ asset('/bower/jquery/dist/jquery.min.js') }}"></script>
 <script src="{{ asset('/bower/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('/bower/react/react-with-addons.min.js') }}"></script>
