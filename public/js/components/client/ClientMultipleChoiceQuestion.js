@@ -1,3 +1,6 @@
+import Conn from './../Conn';
+Conn.connect();
+
 var ClientMultipleChoiceQuestion = React.createClass({
 
     getInitialState: function() {
@@ -34,7 +37,16 @@ var ClientMultipleChoiceQuestion = React.createClass({
 
         if (currentAnswer == this.state.currentAnswer) return;
 
-        this.setState({ currentAnswer }, () => { this.props.onAnswerSelected(this.state.currentAnswer); });
+        this.setState({ currentAnswer }, () => {
+            var message = {
+                event: "question:answered",
+                data: {
+                    answer: this.state.currentAnswer
+                }
+            };
+
+            Conn.send(message);
+        });
     }
 
 });

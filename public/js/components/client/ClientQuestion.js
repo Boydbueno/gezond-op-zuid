@@ -17,7 +17,7 @@ var ClientFirstQuestion = React.createClass({
     componentWillReceiveProps: function(nextProps) {
         var id = nextProps.params.id;
         this.setState({question: Questions[id]});
-
+        console.log("Here?");
     },
 
     render: function() {
@@ -25,7 +25,7 @@ var ClientFirstQuestion = React.createClass({
 
         switch (this.state.question.type) {
             case "MultipleChoice":
-                questionComponent = <ClientMultipleChoiceQuestion question={this.state.question} onAnswerSelected={this.props.onAnswerSelected} />;
+                questionComponent = <ClientMultipleChoiceQuestion question={this.state.question} />;
                 break;
         }
 

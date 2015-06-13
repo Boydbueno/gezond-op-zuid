@@ -107,6 +107,7 @@ var BoardQuestion = React.createClass({
     },
 
     nextQuestion: function() {
+        // Todo: Add some validation
         var id = this.state.question.id;
 
         this.transitionTo('/board/food/' + ++id);

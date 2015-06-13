@@ -29,20 +29,9 @@ var Client = React.createClass({
     render: function() {
         return (
             <div>
-                <RouteHandler name={this.state.name} onConnect={this.connectHandler} onAnswerSelected={this.answerSelected} />
+                <RouteHandler name={this.state.name} onConnect={this.connectHandler} />
             </div>
         );
-    },
-
-    answerSelected: function(answer) {
-        var message = {
-            event: "question:answered",
-            data: {
-                answer
-            }
-        };
-
-        Conn.send(message);
     },
 
     join: function() {
