@@ -3,7 +3,6 @@ var BoardMultipleChoiceQuestion = React.createClass({
     chart: undefined,
     dataTable: undefined,
     chartOptions: {
-        'height': 300,
         backgroundColor: 'transparent',
         tooltip: {
             trigger: 'none'
@@ -72,9 +71,6 @@ var BoardMultipleChoiceQuestion = React.createClass({
     render: function() {
         return (
             <div>
-                <header>
-                    <h1>{ this.props.question.question }</h1>
-                </header>
                 <div className="results" id="chart">
                 </div>
             </div>

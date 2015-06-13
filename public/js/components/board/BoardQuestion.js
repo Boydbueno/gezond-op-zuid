@@ -18,7 +18,7 @@ var BoardQuestion = React.createClass({
     componentWillMount: function() {
         var id = this.props.params.id;
         var question = Questions[id];
-        this.setState({ question });
+        this.setState({question});
 
         // Todo: This needs to be streamlined, but does for now.
         if (question.type == "MultipleChoice") {
@@ -91,7 +91,13 @@ var BoardQuestion = React.createClass({
                 <header className="board-top-bar">
                     <h1>{ header }</h1>
                 </header>
-                { questionComponent }
+                <div className="container">
+                    <section className="board-question">
+                        <div className="board-question-inner">
+                        { questionComponent }
+                        </div>
+                    </section>
+                </div>
             </div>
         );
     }
