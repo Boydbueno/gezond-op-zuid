@@ -2,10 +2,14 @@ import BoardMultipleChoiceQuestion from './BoardMultipleChoiceQuestion';
 import BoardVersusQuestion from './BoardVersusQuestion';
 import Questions from './../Questions';
 
+var Router = ReactRouter;
+var Navigation = Router.Navigation;
+
 import Conn from './../Conn';
 Conn.connect();
 
 var BoardQuestion = React.createClass({
+    mixins: [Navigation],
 
     getInitialState: function() {
         return {
@@ -87,7 +91,7 @@ var BoardQuestion = React.createClass({
         }
 
         return (
-            <div>
+            <div onClick={this.nextQuestion}>
                 <header className="board-top-bar">
                     <h1>{ header }</h1>
                 </header>
@@ -100,6 +104,12 @@ var BoardQuestion = React.createClass({
                 </div>
             </div>
         );
+    },
+
+    nextQuestion: function() {
+        var id = this.state.question.id;
+
+        this.transitionTo('/board/food/' + ++id);
     }
 
 });
