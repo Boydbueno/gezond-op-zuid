@@ -1,16 +1,19 @@
 var BoardMultipleChoiceQuestion = React.createClass({
 
+    chart: undefined,
+    dataTable: undefined,
+
     componentDidMount: function(){
+        this.buildTableData();
         this.drawChart();
     },
 
     componentDidUpdate: function(){
-        this.drawChart();
+        this.buildTableData();
+        this.updateChart();
     },
 
-    drawChart: function() {
-        console.log("Drawing chart");
-
+    buildTableData: function() {
         var rows = [];
 
         var totalAnswers = 0;
@@ -24,11 +27,14 @@ var BoardMultipleChoiceQuestion = React.createClass({
         }
 
         // Create the data table.
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Topping');
-        data.addColumn('number', 'Slices');
-        data.addRows(rows);
+        this.dataTable = new google.visualization.DataTable();
+        this.dataTable.addColumn('string', 'Antwoord');
+        this.dataTable.addColumn('number', 'Percentage');
+        this.dataTable.addRows(rows);
         // Set chart options
+    },
+
+    drawChart: function() {
         var options = {
             'height': 300,
             vAxis: {
@@ -36,7 +42,7 @@ var BoardMultipleChoiceQuestion = React.createClass({
                     min: 0,
                     max: 100
                 },
-                ticks: [0, 25, 50, 75, 100], // display labels every 25
+                ticks: [0, 25, 50, 75, 100],
                 gridlines: {
                     color: 'transparent'
                 }
@@ -49,17 +55,40 @@ var BoardMultipleChoiceQuestion = React.createClass({
                 easing: 'out'
             }
         };
-
         // Instantiate and draw our chart, passing in some options.
-        var chart = new google.visualization.ColumnChart(document.getElementById('chart'));
-        chart.draw(data, options);
+        this.chart = new google.visualization.ColumnChart(document.getElementById('chart'));
+        this.chart.draw(this.dataTable, options);
+    },
+
+    updateChart: function() {
+        var options = {
+            'height': 300,
+            vAxis: {
+                viewWindow: {
+                    min: 0,
+                    max: 100
+                },
+                ticks: [0, 25, 50, 75, 100],
+                gridlines: {
+                    color: 'transparent'
+                }
+            },
+            legend: {
+                position: 'none'
+            },
+            animation: {
+                duration: 1000,
+                easing: 'out'
+            }
+        };
+        this.chart.draw(this.dataTable, options);
     },
 
     render: function() {
         return (
             <div>
                 <header>
-                    <h1>{this.props.question.question}</h1>
+                    <h1>{ this.props.question.question }</h1>
                 </header>
                 <div className="results" id="chart">
                 </div>
