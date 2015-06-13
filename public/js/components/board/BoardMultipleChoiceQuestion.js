@@ -7,6 +7,7 @@ var BoardMultipleChoiceQuestion = React.createClass({
         tooltip: {
             trigger: 'none'
         },
+        colors: ['#63AC44'],
         vAxis: {
             textPosition: 'none',
             viewWindow: {
