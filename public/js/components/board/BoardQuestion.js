@@ -73,10 +73,12 @@ var BoardQuestion = React.createClass({
     },
 
     render: function() {
+        var header;
         var questionComponent;
 
         switch (this.state.question.type) {
             case "MultipleChoice":
+                header = this.state.question.question;
                 questionComponent = <BoardMultipleChoiceQuestion {...this.props} question={this.state.question} givenAnswers={this.state.givenAnswers} totalAnswers={this.state.totalAnswers} />;
                 break;
             case "Versus":
@@ -86,7 +88,10 @@ var BoardQuestion = React.createClass({
 
         return (
             <div>
-                {questionComponent}
+                <header className="board-top-bar">
+                    <h1>{ header }</h1>
+                </header>
+                { questionComponent }
             </div>
         );
     }
