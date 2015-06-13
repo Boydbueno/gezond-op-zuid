@@ -23,7 +23,7 @@ var BoardMultipleChoiceQuestion = React.createClass({
             position: 'none'
         },
         animation: {
-            duration: 1000,
+            duration: 500,
             easing: 'out'
         }
     },
