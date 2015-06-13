@@ -2,6 +2,32 @@ var BoardMultipleChoiceQuestion = React.createClass({
 
     chart: undefined,
     dataTable: undefined,
+    chartOptions: {
+        'height': 300,
+        backgroundColor: 'transparent',
+        tooltip: {
+            trigger: 'none'
+        },
+        vAxis: {
+            textPosition: 'none',
+            viewWindow: {
+                min: 0,
+                max: 100
+            },
+            ticks: [0, 25, 50, 75, 100],
+            gridlines: {
+                color: 'transparent'
+            },
+            baselineColor: 'transparent'
+        },
+        legend: {
+            position: 'none'
+        },
+        animation: {
+            duration: 1000,
+            easing: 'out'
+        }
+    },
 
     componentDidMount: function(){
         this.buildTableData();
@@ -31,57 +57,16 @@ var BoardMultipleChoiceQuestion = React.createClass({
         this.dataTable.addColumn('string', 'Antwoord');
         this.dataTable.addColumn('number', 'Percentage');
         this.dataTable.addRows(rows);
-        // Set chart options
     },
 
     drawChart: function() {
-        var options = {
-            'height': 300,
-            vAxis: {
-                viewWindow: {
-                    min: 0,
-                    max: 100
-                },
-                ticks: [0, 25, 50, 75, 100],
-                gridlines: {
-                    color: 'transparent'
-                }
-            },
-            legend: {
-                position: 'none'
-            },
-            animation: {
-                duration: 400,
-                easing: 'out'
-            }
-        };
         // Instantiate and draw our chart, passing in some options.
         this.chart = new google.visualization.ColumnChart(document.getElementById('chart'));
-        this.chart.draw(this.dataTable, options);
+        this.chart.draw(this.dataTable, this.chartOptions);
     },
 
     updateChart: function() {
-        var options = {
-            'height': 300,
-            vAxis: {
-                viewWindow: {
-                    min: 0,
-                    max: 100
-                },
-                ticks: [0, 25, 50, 75, 100],
-                gridlines: {
-                    color: 'transparent'
-                }
-            },
-            legend: {
-                position: 'none'
-            },
-            animation: {
-                duration: 1000,
-                easing: 'out'
-            }
-        };
-        this.chart.draw(this.dataTable, options);
+        this.chart.draw(this.dataTable, this.chartOptions);
     },
 
     render: function() {
