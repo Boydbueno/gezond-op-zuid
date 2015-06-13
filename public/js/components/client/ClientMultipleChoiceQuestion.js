@@ -5,7 +5,7 @@ var ClientMultipleChoiceQuestion = React.createClass({
 
     getInitialState: function() {
         return {
-            currentAnswer: null
+            currentAnswer: {}
         }
     },
 
@@ -17,7 +17,7 @@ var ClientMultipleChoiceQuestion = React.createClass({
                 <h1>{ this.props.question.question }</h1>
                     {this.props.question.answers.map((answer, i) => {
                         var classes = cx({
-                            active: this.state.currentAnswer == i,
+                            active: this.state.currentAnswer.id == i && this.state.currentAnswer.questionId == this.props.question.id,
                             answer: true
                         });
                         return (
@@ -33,15 +33,15 @@ var ClientMultipleChoiceQuestion = React.createClass({
     },
 
     onAnswerSelected: function(e) {
-        var currentAnswer = e.target.getAttribute('id');
+        var currentAnswer = { id: e.target.getAttribute('id'), questionId: this.props.question.id };
 
-        if (currentAnswer == this.state.currentAnswer) return;
+        if (currentAnswer.id == this.state.currentAnswer.id && this.state.currentAnswer.questionId == this.props.question.id) return;
 
         this.setState({ currentAnswer }, () => {
             var message = {
                 event: "question:answered",
                 data: {
-                    answer: this.state.currentAnswer
+                    answer: this.state.currentAnswer.id
                 }
             };
 
