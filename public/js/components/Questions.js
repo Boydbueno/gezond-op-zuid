@@ -179,16 +179,16 @@ var Questions = {
         "correctAnswer": "Door veel uren door te brengen buiten"
     },
     "11": {
-        "id": "13",
+        "id": "11",
         "type": "Versus",
         "components": [
             {
                 "label": "Big Mac",
-                "image": "http://lorempixel.com/300/300/"
+                "image": "/img/versus/burger.png"
             },
             {
                 "label": "Turkse Pizza",
-                "image": "http://lorempixel.com/300/300/"
+                "image": "/img/versus/turkse.png"
             }
         ]
     }
