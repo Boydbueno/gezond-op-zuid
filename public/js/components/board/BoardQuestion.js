@@ -109,17 +109,33 @@ var BoardQuestion = React.createClass({
                 <header className="board-top-bar">
                     <h1>{ header }</h1>
                 </header>
-                <div className={prevQuestionClasses}></div>
+                <div className={prevQuestionClasses} onClick={this.prevQuestion}></div>
                 <div className="container">
                     { questionComponent }
                 </div>
-                <div className={nextQuestionClasses}></div>
+                <div className={nextQuestionClasses} onClick={this.nextQuestion}></div>
             </div>
         );
     },
 
     setNavigationState: function(state) {
         this.setState({ isNavigationShown: state })
+    },
+
+    prevQuestion: function() {
+        var id = this.state.question.id - 1;
+
+        if (!Questions[id]) return;
+
+        this.transitionTo('/board/food/' + id);
+    },
+
+    nextQuestion: function() {
+        var id = ++this.state.question.id + 1;
+
+        if (!Questions[id]) return;
+
+        this.transitionTo('/board/food/' + id);
     }
 
 });
