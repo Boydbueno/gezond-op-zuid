@@ -5,8 +5,29 @@ var ClientMultipleChoiceQuestion = React.createClass({
 
     getInitialState: function() {
         return {
-            currentAnswer: {}
+            currentAnswer: {},
+            isAnswerShown: false
         }
+    },
+
+    componentWillReceiveProps: function(props) {
+        if (props.question) {
+            this.setState({
+                currentAnswer: {},
+                isAnswerShown: false
+            })
+        }
+    },
+
+    componentWillMount: function() {
+        Conn.onMessage((e) => {
+            var message = JSON.parse(e.data);
+            switch (message.event) {
+                case 'question:answerShownStateChanged':
+                    this.setState({ isAnswerShown: message.data.isAnswerShown });
+                    break;
+            }
+        });
     },
 
     render: function() {
@@ -17,8 +38,10 @@ var ClientMultipleChoiceQuestion = React.createClass({
                 <h1>{ this.props.question.question }</h1>
                     {this.props.question.answers.map((answer, i) => {
                         var classes = cx({
-                            active: this.state.currentAnswer.id == i && this.state.currentAnswer.questionId == this.props.question.id,
-                            answer: true
+                            answer: true,
+                            active: this.state.currentAnswer.id == i,
+                            correct: this.state.isAnswerShown && answer.label == this.props.question.correctAnswer,
+                            wrong: this.state.isAnswerShown && this.state.currentAnswer.id == i && answer.label != this.props.question.correctAnswer
                         });
                         return (
                             <div key={i}>
@@ -33,6 +56,8 @@ var ClientMultipleChoiceQuestion = React.createClass({
     },
 
     onAnswerSelected: function(e) {
+        if (this.state.isAnswerShown) return;
+
         var currentAnswer = { id: e.target.getAttribute('id'), questionId: this.props.question.id };
 
         if (currentAnswer.id == this.state.currentAnswer.id && this.state.currentAnswer.questionId == this.props.question.id) return;

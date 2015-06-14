@@ -11,13 +11,13 @@ var Questions = {
                 "label": "24"
             },
             {
-                "label": "58",
-                "correct": true
+                "label": "58"
             },
             {
                 "label": "82"
             }
-        ]
+        ],
+        "correctAnswer": "8"
     },
     "2": {
         "id": "2",
@@ -31,13 +31,13 @@ var Questions = {
                 "label": "2920"
             },
             {
-                "label": "7514",
-                "correct": true
+                "label": "7514"
             },
             {
                 "label": "12980"
             }
-        ]
+        ],
+        "correctAnswer": "1400"
     },
     "3": {
         "id": "3",
@@ -56,7 +56,8 @@ var Questions = {
             {
                 "label": "Kipfilet"
             }
-        ]
+        ],
+        "correctAnswer": "Jam"
     },
     "4": {
         "id": "4",
@@ -72,7 +73,8 @@ var Questions = {
             {
                 "label": "Vitamine E: het in stand houden van spier- en ander weefsel"
             }
-        ]
+        ],
+        "correctAnswer": "Vitamine D: helpt bij de opbouw van botten en het gebit"
     },
     "5": {
         "id": "5",
@@ -88,7 +90,8 @@ var Questions = {
             {
                 "label": "Biologische producten"
             }
-        ]
+        ],
+        "correctAnswer": "Normale producten"
     },
     "6": {
         "id": "6",
@@ -104,7 +107,8 @@ var Questions = {
             {
                 "label": "Je spieren worden sterker"
             }
-        ]
+        ],
+        "correctAnswer": "Je wordt minder snel oud"
     },
     "7": {
         "id": "7",
@@ -120,7 +124,8 @@ var Questions = {
             {
                 "label": "Appel en peer"
             }
-        ]
+        ],
+        "correctAnswer": "Banaan en sinaasappel"
     },
     "8": {
         "id": "8",
@@ -136,7 +141,8 @@ var Questions = {
             {
                 "label": "Je hebt spierpijn"
             }
-        ]
+        ],
+        "correctAnswer": "Je wordt moe"
     },
     "9": {
         "id": "9",
@@ -149,7 +155,8 @@ var Questions = {
             {
                 "label": "Niet waar"
             }
-        ]
+        ],
+        "correctAnswer": "Waar"
     },
     "10": {
         "id": "10",
@@ -165,7 +172,8 @@ var Questions = {
             {
                 "label": "Pure chocolade is bitter in plaats van zoet. Zoete producten zijn altijd slechter voor je"
             }
-        ]
+        ],
+        "correctAnswer": "Van pure chocolade zit je sneller vol, waardoor je er minder van eet"
     },
     "11": {
         "id": "11",
@@ -184,7 +192,8 @@ var Questions = {
             {
                 "label": "Veel lachen"
             }
-        ]
+        ],
+        "correctAnswer": "Tien uur slapen per nacht"
     },
     "12": {
         "id": "12",
@@ -203,7 +212,8 @@ var Questions = {
             {
                 "label": "Door veel water te drinken"
             }
-        ]
+        ],
+        "correctAnswer": "Door veel uren buiten door te brengen"
     },
     "13": {
         "id": "13",

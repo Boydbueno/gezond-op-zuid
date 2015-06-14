@@ -1,3 +1,6 @@
+import Conn from './../Conn';
+Conn.connect();
+
 var BoardMultipleChoiceQuestion = React.createClass({
 
     chart: undefined,
@@ -26,6 +29,12 @@ var BoardMultipleChoiceQuestion = React.createClass({
         animation: {
             duration: 500,
             easing: 'out'
+        }
+    },
+
+    getInitialState: function() {
+        return {
+            isAnswerShown: false
         }
     },
 
@@ -70,12 +79,39 @@ var BoardMultipleChoiceQuestion = React.createClass({
     },
 
     render: function() {
+        var cx = React.addons.classSet;
+
+        var answerClasses = cx({
+            "hidden": !this.state.isAnswerShown,
+            "board-answer": true
+        });
+
         return (
-            <div>
-                <div className="results" id="chart">
+            <section className="board-question">
+                <div className="board-question-inner">
+                    <div onClick={this.toggleAnswerShowState}>
+                        <div className="results" id="chart">
+                        </div>
+                    </div>
                 </div>
-            </div>
+                <div className={answerClasses}>
+                    <span>{ this.props.question.correctAnswer }</span>
+                </div>
+            </section>
         );
+    },
+
+    toggleAnswerShowState: function() {
+        var isAnswerShown = !this.state.isAnswerShown;
+
+        this.setState({ isAnswerShown });
+
+        var message = {
+            event: "question:answerShownStateChanged",
+            data: { isAnswerShown }
+        };
+
+        Conn.send(message);
     }
 });
 

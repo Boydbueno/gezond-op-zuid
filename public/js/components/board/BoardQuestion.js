@@ -96,11 +96,7 @@ var BoardQuestion = React.createClass({
                     <h1>{ header }</h1>
                 </header>
                 <div className="container">
-                    <section className="board-question">
-                        <div className="board-question-inner">
-                        { questionComponent }
-                        </div>
-                    </section>
+                    { questionComponent }
                 </div>
             </div>
         );
