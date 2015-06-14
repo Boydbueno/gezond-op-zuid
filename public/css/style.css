@@ -214,6 +214,7 @@ body {
     height: 50%;
     background-color: #63AC44;
     border-radius: 30%;
+    border: 6px solid #54913A;
 }
 
 .board-answer span {
