@@ -91,7 +91,7 @@ var BoardQuestion = React.createClass({
         }
 
         return (
-            <div onClick={this.nextQuestion}>
+            <div>
                 <header className="board-top-bar">
                     <h1>{ header }</h1>
                 </header>
@@ -104,13 +104,6 @@ var BoardQuestion = React.createClass({
                 </div>
             </div>
         );
-    },
-
-    nextQuestion: function() {
-        // Todo: Add some validation
-        var id = this.state.question.id;
-
-        this.transitionTo('/board/food/' + ++id);
     }
 
 });

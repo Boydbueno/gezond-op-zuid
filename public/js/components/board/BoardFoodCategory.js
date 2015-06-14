@@ -6,7 +6,7 @@ var BoardFoodCategory = React.createClass({
         return (
             <div>
                 <header className="board-top-bar">
-                    <h1>Maandag 1 juni </h1>
+                    <h1>MAANDAG 15 JUNI</h1>
                 </header>
                 <section>
                     <image className="board-category-image" src="./img/icon_food_active.jpg" />
