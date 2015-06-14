@@ -105,7 +105,7 @@ var BoardMultipleChoiceQuestion = React.createClass({
         var isAnswerShown = !this.state.isAnswerShown;
 
         this.setState({ isAnswerShown });
-
+        this.props.onAnswerShownStateChange(isAnswerShown);
         var message = {
             event: "question:answerShownStateChanged",
             data: { isAnswerShown }

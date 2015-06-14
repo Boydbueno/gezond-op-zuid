@@ -15,7 +15,8 @@ var BoardQuestion = React.createClass({
         return {
             question: null,
             givenAnswers: {},
-            totalAnswer: 0
+            totalAnswer: 0,
+            isNavigationShown: false
         }
     },
 
@@ -79,11 +80,24 @@ var BoardQuestion = React.createClass({
     render: function() {
         var header;
         var questionComponent;
+        var cx = React.addons.classSet;
+
+        var nextQuestionClasses = cx({
+            "hidden": !this.state.isNavigationShown,
+            "question-navigation": true,
+            "next-question": true
+        });
+
+        var prevQuestionClasses = cx({
+            "hidden": !this.state.isNavigationShown,
+            "question-navigation": true,
+            "prev-question": true
+        });
 
         switch (this.state.question.type) {
             case "MultipleChoice":
                 header = this.state.question.question;
-                questionComponent = <BoardMultipleChoiceQuestion {...this.props} question={this.state.question} givenAnswers={this.state.givenAnswers} totalAnswers={this.state.totalAnswers} />;
+                questionComponent = <BoardMultipleChoiceQuestion {...this.props} onAnswerShownStateChange={this.setNavigationState} question={this.state.question} givenAnswers={this.state.givenAnswers} totalAnswers={this.state.totalAnswers} />;
                 break;
             case "Versus":
                 questionComponent = <BoardVersusQuestion question={this.state.question} />;
@@ -95,11 +109,17 @@ var BoardQuestion = React.createClass({
                 <header className="board-top-bar">
                     <h1>{ header }</h1>
                 </header>
+                <div className={prevQuestionClasses}></div>
                 <div className="container">
                     { questionComponent }
                 </div>
+                <div className={nextQuestionClasses}></div>
             </div>
         );
+    },
+
+    setNavigationState: function(state) {
+        this.setState({ isNavigationShown: state })
     }
 
 });

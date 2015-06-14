@@ -1,6 +1,5 @@
 var BoardVersusQuestion = React.createClass({
     render: function() {
-
         return (
             <div>
                 <header className="well">
