@@ -2,65 +2,25 @@ var Questions = {
     "1": {
         "id": "1",
         "type": "MultipleChoice",
-        "question": "Tomatenketchup bevat veel gezonde tomaten maar ook veel suiker. Hoeveel suikerklontjes zitten er in een fles van 875ml?",
+        "question": "Als je net zo’n goede voetballer wilt worden als Robin van Persie, wat kan je kan dan het beste als boordbeleg nemen?",
         "answers": [
             {
-                "label": "8"
-            },
-            {
-                "label": "24"
-            },
-            {
-                "label": "58"
-            },
-            {
-                "label": "82"
-            }
-        ],
-        "correctAnswer": "8"
-    },
-    "2": {
-        "id": "2",
-        "type": "MultipleChoice",
-        "question": "Hoeveel suikerklontjes kun je op jaarbasis besparen als je je dagelijkse blikje cola van 33 cl laat staan?",
-        "answers": [
-            {
-                "label": "1400"
-            },
-            {
-                "label": "2920"
-            },
-            {
-                "label": "7514"
-            },
-            {
-                "label": "12980"
-            }
-        ],
-        "correctAnswer": "1400"
-    },
-    "3": {
-        "id": "3",
-        "type": "MultipleChoice",
-        "question": "Als je net zo’n goede voetballer wil worden als Robin van Persie, wat moet je dan als broodbeleg eten?",
-        "answers": [
-            {
-                "label": "Jam"
-            },
-            {
-                "label": "Kaas"
+                "label": "Kipfilet"
             },
             {
                 "label": "Pindakaas"
             },
             {
-                "label": "Kipfilet"
+                "label": "Kaas"
+            },
+            {
+                "label": "Aardbeienjam"
             }
         ],
-        "correctAnswer": "Jam"
+        "correctAnswer": "Pindakaas"
     },
-    "4": {
-        "id": "4",
+    "2": {
+        "id": "2",
         "type": "MultipleChoice",
         "question": "Welke vitaminesoort bevat pindakaas?",
         "answers": [
@@ -74,10 +34,10 @@ var Questions = {
                 "label": "Vitamine E: het in stand houden van spier- en ander weefsel"
             }
         ],
-        "correctAnswer": "Vitamine D: helpt bij de opbouw van botten en het gebit"
+        "correctAnswer": "Vitamine E: het in stand houden van spier- en ander weefsel"
     },
-    "5": {
-        "id": "5",
+    "3": {
+        "id": "3",
         "type": "MultipleChoice",
         "question": "Welke soort producten zullen de meeste vitamines en mineralen bevatten?",
         "answers": [
@@ -91,10 +51,10 @@ var Questions = {
                 "label": "Biologische producten"
             }
         ],
-        "correctAnswer": "Normale producten"
+        "correctAnswer": "Biologische producten"
     },
-    "6": {
-        "id": "6",
+    "4": {
+        "id": "4",
         "type": "MultipleChoice",
         "question": "Vitamine C is goed voor o.a. de weerstand en gezonde tanden. Waar is het nog meer goed voor?",
         "answers": [
@@ -110,10 +70,10 @@ var Questions = {
         ],
         "correctAnswer": "Je wordt minder snel oud"
     },
-    "7": {
-        "id": "7",
+    "5": {
+        "id": "5",
         "type": "MultipleChoice",
-        "question": "Welke fruitsoorten bevatten de meeste vitamine C",
+        "question": "Welke fruitsoorten bevatten de meeste vitamine C?",
         "answers": [
             {
                 "label": "Banaan en sinaasappel"
@@ -123,12 +83,15 @@ var Questions = {
             },
             {
                 "label": "Appel en peer"
+            },
+            {
+                "label": "Meloen"
             }
         ],
-        "correctAnswer": "Banaan en sinaasappel"
+        "correctAnswer": "Sinaasappel en kiwi"
     },
-    "8": {
-        "id": "8",
+    "6": {
+        "id": "6",
         "type": "MultipleChoice",
         "question": "Hoe merk je dat je te weinig vitamine A binnenkrijgt?",
         "answers": [
@@ -142,10 +105,10 @@ var Questions = {
                 "label": "Je hebt spierpijn"
             }
         ],
-        "correctAnswer": "Je wordt moe"
+        "correctAnswer": "Je krijgt een drogere huid en dof haar"
     },
-    "9": {
-        "id": "9",
+    "7": {
+        "id": "7",
         "type": "MultipleChoice",
         "question": "Stelling: diepvriesgroenten bevatten evenveel vitamines als verse groenten",
         "answers": [
@@ -158,8 +121,8 @@ var Questions = {
         ],
         "correctAnswer": "Waar"
     },
-    "10": {
-        "id": "10",
+    "8": {
+        "id": "8",
         "type": "MultipleChoice",
         "question": "Waarom is pure chocolade net iets gezonder dan witte chocolade?",
         "answers": [
@@ -173,10 +136,10 @@ var Questions = {
                 "label": "Pure chocolade is bitter in plaats van zoet. Zoete producten zijn altijd slechter voor je"
             }
         ],
-        "correctAnswer": "Van pure chocolade zit je sneller vol, waardoor je er minder van eet"
+        "correctAnswer": "Pure chocolade bevat meer cacao. Cacao is goed voor je"
     },
-    "11": {
-        "id": "11",
+    "9": {
+        "id": "9",
         "type": "MultipleChoice",
         "question": "Vitamine B11, ook wel bekend als foliumzuur, is belangrijk voor het aanmaken van bloed. Waaruit haalt je lichaam vitamine B11?",
         "answers": [
@@ -193,15 +156,15 @@ var Questions = {
                 "label": "Veel lachen"
             }
         ],
-        "correctAnswer": "Tien uur slapen per nacht"
+        "correctAnswer": "Het eten van groene groenten"
     },
-    "12": {
-        "id": "12",
+    "10": {
+        "id": "10",
         "type": "MultipleChoice",
         "question": "Hoe krijg net zo’n mooie glimlach als Beyoncé?",
         "answers": [
             {
-                "label": "Door veel uren buiten door te brengen"
+                "label": "Door veel uren door te brengen buiten"
             },
             {
                 "label": "Door het eten van wortels"
@@ -213,9 +176,9 @@ var Questions = {
                 "label": "Door veel water te drinken"
             }
         ],
-        "correctAnswer": "Door veel uren buiten door te brengen"
+        "correctAnswer": "Door veel uren door te brengen buiten"
     },
-    "13": {
+    "11": {
         "id": "13",
         "type": "Versus",
         "components": [
