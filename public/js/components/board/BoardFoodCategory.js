@@ -9,7 +9,7 @@ var BoardFoodCategory = React.createClass({
                     <h1>MAANDAG 15 JUNI</h1>
                 </header>
                 <section>
-                    <image className="board-category-image" src="./img/icon_food_active.jpg" />
+                    <image className="board-category-image" src="./img/icon_food.jpg" />
                     <section className="board-subcategories">
                         <h1>Subcategorieën</h1>
                         <ol>
