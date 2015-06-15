@@ -22,7 +22,7 @@ var Questions = {
     "2": {
         "id": 2,
         "type": "MultipleChoice",
-        "question": "Welke vitaminesoort bevat pindakaas?",
+        "question": "Welke vitaminesoort zit er in pindakaas?",
         "answers": [
             {
                 "label": "Vitamine D: helpt bij de opbouw van botten en het gebit"
@@ -39,7 +39,7 @@ var Questions = {
     "3": {
         "id": 3,
         "type": "MultipleChoice",
-        "question": "Welke soort producten zullen de meeste vitamines en mineralen bevatten?",
+        "question": "Welk soort producten zullen de meeste vitamines en mineralen bevatten?",
         "answers": [
             {
                 "label": "Normale producten"
@@ -73,7 +73,7 @@ var Questions = {
     "5": {
         "id": 5,
         "type": "MultipleChoice",
-        "question": "Welke fruitsoorten bevatten de meeste vitamine C?",
+        "question": "Welk fruit bevat de meeste vitamine C?",
         "answers": [
             {
                 "label": "Banaan en sinaasappel"
@@ -164,7 +164,7 @@ var Questions = {
         "question": "Hoe krijg net zo’n mooie glimlach als Beyoncé?",
         "answers": [
             {
-                "label": "Door veel uren door te brengen buiten"
+                "label": "Door veel uren buiten door te brengen"
             },
             {
                 "label": "Door het eten van wortels"
@@ -176,7 +176,7 @@ var Questions = {
                 "label": "Door veel water te drinken"
             }
         ],
-        "correctAnswer": "Door veel uren door te brengen buiten"
+        "correctAnswer": "Door veel uren buiten door te brengen"
     },
     "11": {
         "id": 11,
