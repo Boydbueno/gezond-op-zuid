@@ -132,9 +132,10 @@ var BoardQuestion = React.createClass({
 
     nextQuestion: function() {
         var id = this.state.question.id + 1;
-
+        console.log(id);
         if (id == 11) {
             this.transitionTo('/thanks');
+            return;
         }
 
         if (!Questions[id]) return;
