@@ -184,13 +184,59 @@ var Questions = {
         "components": [
             {
                 "label": "Big Mac",
-                "image": "/img/versus/burger.png"
+                "image": "/img/versus/hamburger.png"
             },
             {
                 "label": "Turkse Pizza",
-                "image": "/img/versus/turkse.png"
+                "image": "/img/versus/turkse-pizza.png"
             }
-        ]
+        ],
+        "correctAnswer": "Turkse Pizza"
+    },
+    "12": {
+        "id": 12,
+        "type": "Versus",
+        "components": [
+            {
+                "label": "Magnum",
+                "image": "/img/versus/magnum.png"
+            },
+            {
+                "label": "Saucijzenbroodje",
+                "image": "/img/versus/saucijzenbroodje.png"
+            }
+        ],
+        "correctAnswer": "Magnum"
+    },
+    "13": {
+        "id": 13,
+        "type": "Versus",
+        "components": [
+            {
+                "label": "Capri Sonne",
+                "image": "/img/versus/capri-sonne.png"
+            },
+            {
+                "label": "Chocomel",
+                "image": "/img/versus/chocomel.png"
+            }
+        ],
+        "correctAnswer": "Chocomel"
+    },
+    "14": {
+        "id": 14,
+        "type": "Versus",
+        "components": [
+            {
+                "label": "Appel",
+                "image": "/img/versus/appel.png"
+            },
+            {
+                "label": "Banaan",
+                "image": "/img/versus/banaan.png"
+            }
+        ],
+        "correctAnswer": "Appel"
     }
 };
 
