@@ -73,7 +73,7 @@ var Questions = {
     "5": {
         "id": 5,
         "type": "MultipleChoice",
-        "question": "Welk fruit bevat de meeste vitamine C?",
+        "question": "Welke fruitsoorten bevatten de meeste vitamine C?",
         "answers": [
             {
                 "label": "Banaan en sinaasappel"
