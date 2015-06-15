@@ -2,7 +2,7 @@ var Questions = {
     "1": {
         "id": 1,
         "type": "MultipleChoice",
-        "question": "Als je net zo’n goede voetballer wilt worden als Robin van Persie, wat kan je kan dan het beste als boordbeleg nemen?",
+        "question": "Als je net zo’n goede voetballer wilt worden als Robin van Persie, wat kan je kan dan het beste als broodbeleg nemen?",
         "answers": [
             {
                 "label": "Kipfilet"
