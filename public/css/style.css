@@ -76,7 +76,11 @@ body {
     border-left: 2px solid black;
     border-bottom: 2px solid black;
     float: right;
-    background-color: #D3D3D3;
+
+}
+
+.question-type-icon-vitamine-quiz {
+    background: #D3D3D3 url('../img/vitamine-quiz.png') 50%;
 }
 
 .client-question {

@@ -24,6 +24,12 @@ var ClientFirstQuestion = React.createClass({
 
         switch (this.state.question.type) {
             case "MultipleChoice":
+                var cx = React.addons.classSet;
+
+                var typeIcon = cx({
+                    "question-type-icon": true,
+                    "question-type-icon-vitamine-quiz": true
+                });
                 questionComponent = <ClientMultipleChoiceQuestion question={this.state.question} />;
                 break;
         }
@@ -31,7 +37,7 @@ var ClientFirstQuestion = React.createClass({
         return (
             <div className="client-question-wrapper">
                 <header className="top-bar">
-                    <i className="question-type-icon"></i>
+                    <i className={typeIcon}></i>
                 </header>
                 <div className="container client-container">
                     <section className="client-question">
