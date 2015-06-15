@@ -11,7 +11,8 @@ var ClientMultipleChoiceQuestion = React.createClass({
     },
 
     componentWillReceiveProps: function(props) {
-        if (props.question) {
+        // Only if new question
+        if (props.question.id !== this.props.question.id) {
             this.setState({
                 currentAnswer: {},
                 isAnswerShown: false
@@ -25,9 +26,18 @@ var ClientMultipleChoiceQuestion = React.createClass({
             switch (message.event) {
                 case 'question:answerShownStateChanged':
                     this.setState({ isAnswerShown: message.data.isAnswerShown });
+
+                    // Only if answer is correct
+                    if (this.isAnswerCorrect() && message.data.isAnswerShown) {
+                        this.props.onCorrectAnswer();
+                    }
                     break;
             }
         });
+    },
+
+    isAnswerCorrect: function() {
+        return this.state.currentAnswer.label === this.props.question.correctAnswer;
     },
 
     render: function() {
@@ -58,8 +68,8 @@ var ClientMultipleChoiceQuestion = React.createClass({
 
     onAnswerSelected: function(e) {
         if (this.state.isAnswerShown) return;
-
-        var currentAnswer = { id: e.target.getAttribute('id'), questionId: this.props.question.id };
+        var id = e.target.getAttribute('id');
+        var currentAnswer = { id: id, questionId: this.props.question.id, label: this.props.question.answers[id].label };
 
         if (currentAnswer.id == this.state.currentAnswer.id && this.state.currentAnswer.questionId == this.props.question.id) return;
 

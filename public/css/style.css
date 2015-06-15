@@ -69,6 +69,12 @@ body {
     border-bottom: 2px solid black;
 }
 
+.score {
+    line-height: 60px;
+    font-size: 24px;
+    margin-left: 40px;
+}
+
 .question-type-icon {
     display: block;
     width: 60px;

@@ -5,7 +5,8 @@ var ClientFirstQuestion = React.createClass({
 
     getInitialState: function() {
         return {
-            question: null
+            question: null,
+            score: 0
         }
     },
 
@@ -30,13 +31,14 @@ var ClientFirstQuestion = React.createClass({
                     "question-type-icon": true,
                     "question-type-icon-vitamine-quiz": true
                 });
-                questionComponent = <ClientMultipleChoiceQuestion question={this.state.question} />;
+                questionComponent = <ClientMultipleChoiceQuestion onCorrectAnswer={this.increaseScore} question={this.state.question} />;
                 break;
         }
 
         return (
             <div className="client-question-wrapper">
                 <header className="top-bar">
+                    <span className="score">Score: {this.state.score}</span>
                     <i className={typeIcon}></i>
                 </header>
                 <div className="container client-container">
@@ -48,6 +50,10 @@ var ClientFirstQuestion = React.createClass({
                 </div>
             </div>
         );
+    },
+
+    increaseScore: function() {
+        this.setState({ score: this.state.score += 100 });
     }
 
 });
