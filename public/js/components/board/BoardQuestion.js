@@ -131,7 +131,7 @@ var BoardQuestion = React.createClass({
     },
 
     nextQuestion: function() {
-        var id = ++this.state.question.id + 1;
+        var id = this.state.question.id + 1;
 
         if (!Questions[id]) return;
 

@@ -1,6 +1,6 @@
 var Questions = {
     "1": {
-        "id": "1",
+        "id": 1,
         "type": "MultipleChoice",
         "question": "Als je net zo’n goede voetballer wilt worden als Robin van Persie, wat kan je kan dan het beste als boordbeleg nemen?",
         "answers": [
@@ -20,7 +20,7 @@ var Questions = {
         "correctAnswer": "Pindakaas"
     },
     "2": {
-        "id": "2",
+        "id": 2,
         "type": "MultipleChoice",
         "question": "Welke vitaminesoort bevat pindakaas?",
         "answers": [
@@ -37,7 +37,7 @@ var Questions = {
         "correctAnswer": "Vitamine E: het in stand houden van spier- en ander weefsel"
     },
     "3": {
-        "id": "3",
+        "id": 3,
         "type": "MultipleChoice",
         "question": "Welke soort producten zullen de meeste vitamines en mineralen bevatten?",
         "answers": [
@@ -54,7 +54,7 @@ var Questions = {
         "correctAnswer": "Biologische producten"
     },
     "4": {
-        "id": "4",
+        "id": 4,
         "type": "MultipleChoice",
         "question": "Vitamine C is goed voor o.a. de weerstand en gezonde tanden. Waar is het nog meer goed voor?",
         "answers": [
@@ -71,7 +71,7 @@ var Questions = {
         "correctAnswer": "Je wordt minder snel oud"
     },
     "5": {
-        "id": "5",
+        "id": 5,
         "type": "MultipleChoice",
         "question": "Welke fruitsoorten bevatten de meeste vitamine C?",
         "answers": [
@@ -91,7 +91,7 @@ var Questions = {
         "correctAnswer": "Sinaasappel en kiwi"
     },
     "6": {
-        "id": "6",
+        "id": 6,
         "type": "MultipleChoice",
         "question": "Hoe merk je dat je te weinig vitamine A binnenkrijgt?",
         "answers": [
@@ -108,7 +108,7 @@ var Questions = {
         "correctAnswer": "Je krijgt een drogere huid en dof haar"
     },
     "7": {
-        "id": "7",
+        "id": 7,
         "type": "MultipleChoice",
         "question": "Stelling: diepvriesgroenten bevatten evenveel vitamines als verse groenten",
         "answers": [
@@ -122,7 +122,7 @@ var Questions = {
         "correctAnswer": "Waar"
     },
     "8": {
-        "id": "8",
+        "id": 8,
         "type": "MultipleChoice",
         "question": "Waarom is pure chocolade net iets gezonder dan witte chocolade?",
         "answers": [
@@ -139,7 +139,7 @@ var Questions = {
         "correctAnswer": "Pure chocolade bevat meer cacao. Cacao is goed voor je"
     },
     "9": {
-        "id": "9",
+        "id": 9,
         "type": "MultipleChoice",
         "question": "Vitamine B11, ook wel bekend als foliumzuur, is belangrijk voor het aanmaken van bloed. Waaruit haalt je lichaam vitamine B11?",
         "answers": [
@@ -159,7 +159,7 @@ var Questions = {
         "correctAnswer": "Het eten van groene groenten"
     },
     "10": {
-        "id": "10",
+        "id": 10,
         "type": "MultipleChoice",
         "question": "Hoe krijg net zo’n mooie glimlach als Beyoncé?",
         "answers": [
@@ -179,7 +179,7 @@ var Questions = {
         "correctAnswer": "Door veel uren door te brengen buiten"
     },
     "11": {
-        "id": "11",
+        "id": 11,
         "type": "Versus",
         "components": [
             {
