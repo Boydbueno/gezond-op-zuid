@@ -76,7 +76,6 @@ body {
     border-left: 2px solid black;
     border-bottom: 2px solid black;
     float: right;
-
 }
 
 .question-type-icon-vitamine-quiz {
@@ -108,7 +107,7 @@ body {
 .answer {
     background-color: #F5F5F5;
     border-radius: 50px;
-    width: 300px;
+    width: 250px;
     margin: 10px auto;
     text-align: center;
     padding: 10px 10px;
