@@ -133,6 +133,10 @@ var BoardQuestion = React.createClass({
     nextQuestion: function() {
         var id = this.state.question.id + 1;
 
+        if (id == 11) {
+            this.transitionTo('/thanks');
+        }
+
         if (!Questions[id]) return;
 
         this.transitionTo('/board/food/' + id);

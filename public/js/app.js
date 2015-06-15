@@ -2,6 +2,8 @@
 
 import App from './components/App';
 
+import Thanks from './components/Thanks';
+
 import Client from './components/Client';
 import ClientHome from './components/client/ClientHome';
 import Login from './components/client/Login';
@@ -37,6 +39,8 @@ var routes = (
             <Route name="boardFood" path="board/food" handler={BoardFoodCategory} />
             <Route path="board/food/:id" handler={BoardQuestion} />
         </Route>
+        <Route handler={Thanks} path="thanks" />
+
     </Route>
 );
 
