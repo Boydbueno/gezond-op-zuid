@@ -96,7 +96,7 @@ var BoardQuestion = React.createClass({
 
         switch (this.state.question.type) {
             case "MultipleChoice":
-                header = this.state.question.question;
+                header = this.state.question.id + ". " + this.state.question.question;
                 questionComponent = <BoardMultipleChoiceQuestion {...this.props} onAnswerShownStateChange={this.setNavigationState} question={this.state.question} givenAnswers={this.state.givenAnswers} totalAnswers={this.state.totalAnswers} />;
                 break;
             case "Versus":
