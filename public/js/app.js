@@ -49,7 +49,7 @@ google.setOnLoadCallback(start);
 
 function start() {
     Router.run(routes, function (Handler) {
-        if (window.location.hash.includes('#/board')) {
+        if (window.location.hash.indexOf('#/board') == 0) {
             var message = {
                 event: "state:changed",
                 data: {
