@@ -20,6 +20,7 @@ body {
     visibility: visible;
     background: #DBDBDB url('../img/logo.png') center center no-repeat;
     background-size: contain;
+    -webkit-transition: opacity 600ms, visibility 0s linear 600ms;
     transition: opacity 600ms, visibility 0s linear 600ms;
     z-index: 1;
 }
