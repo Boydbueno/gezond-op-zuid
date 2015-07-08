@@ -13,7 +13,8 @@ var Client = React.createClass({
     mixins: [Navigation],
     getInitialState: function() {
         return {
-            name: localStorage["name"] || ""
+            name: localStorage["name"] || "",
+            hideOverlay: false
         }
     },
 
@@ -26,9 +27,22 @@ var Client = React.createClass({
         this.join();
     },
 
+    componentDidMount: function() {
+        window.setTimeout(() => {
+            this.setState({hideOverlay: true});
+        }, 2500);
+    },
+
     render: function() {
+        var cx = React.addons.classSet;
+        var classes = cx({
+            "overlay": true,
+            "fadeout": this.state.hideOverlay
+        });
+
         return (
             <div>
+                <div className={classes}></div>
                 <RouteHandler name={this.state.name} onConnect={this.connectHandler} />
             </div>
         );
